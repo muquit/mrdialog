@@ -27,6 +27,12 @@ TODO: write the API document here
 * dialog must be installed. dialog home is:
  http://invisible-island.net/dialog/dialog.html
 
+== To install
+
+   # gem install mrdialog
+   or
+   $ sudo gem install mrdialog
+
 === To build
 
     $ rake build
