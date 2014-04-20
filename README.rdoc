@@ -24,8 +24,7 @@ TODO: write the API document here
 
 === Requirements
 
-* dialog must be installed. dialog home is:
- http://invisible-island.net/dialog/dialog.html
+* dialog must be installed. dialog home is: http://invisible-island.net/dialog/dialog.html
 
 == To install
 
