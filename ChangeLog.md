@@ -2,7 +2,8 @@
 
 * Jeweler support for making the gem.
 
-* Implemented methods for: 
+Implemented methods for: 
+
 *  'buildlist' (--buildlist)
 *  'editbox' (--editbox)
 *  'form' (--form)
@@ -21,27 +22,28 @@
     dialog_ok, dialog_cancel, dialog_help, dialog_extra,
     dialog_item_help, dialog_esc
 
-* Implemented examples for:
-** buildlist
-** calendar
-** checklist
-** editbox
-** form
-** fselect
-** gauge
-** infobox
-** inputbox
-** menu
-** msgbox
-** passwordbox
-** pause
-** prgbox
-** progressbox
-** programbox
-** radiolist
-** timebox
-** treeview
-** yesno
+Implemented examples for:
+
+* buildlist
+* calendar
+* checklist
+* editbox
+* form
+* fselect
+* gauge
+* infobox
+* inputbox
+* menu
+* msgbox
+* passwordbox
+* pause
+* prgbox
+* progressbox
+* programbox
+* radiolist
+* timebox
+* treeview
+* yesno
 
 Note: The examples use Struct class, making the examples clean and 
 easy to understand. 
