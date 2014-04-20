@@ -3,7 +3,7 @@
 mrdialog is a pure ruby library for the ncurses dialog program. dialog is
 a command line tool that can present questions, messages, forms using 
 dialog boxes from a shell script. However, it is painful to program dialog
-from shell scripts due to lack of data structure etc. You constactly have
+from shell scripts due to lack of data structure etc. You constantly have
 to watch if the correct number of items are specified, if the arguments 
 are in correct order for example. 
 
