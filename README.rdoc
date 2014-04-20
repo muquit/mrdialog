@@ -19,7 +19,8 @@ the examples for all the widgets.  Please look at the ChangeLog.md file
 for details.
 
 <b>For now, please look at the examples in the "samples" directory to see how the API works.</b>
-TODO: write the API document here
+
+<b>TODO</b>: write the API document here
 
 === Requirements
 
