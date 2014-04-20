@@ -18,7 +18,7 @@ I added support for all of the missing widgets, fixed bugs, implemented
 the examples for all the widgets.  Please look at the ChangeLog.md file 
 for details.
 
-**Please look at the examples in the "samples" directory to see how the API works.**
+*For now, please look at the examples in the "samples" directory to see how the API works.*
 
 TODO: write the API document here
 
