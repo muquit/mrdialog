@@ -46,21 +46,21 @@ Please look at the [screenshots](screenshots/) directory. There are individual s
 ### How to use
 For now please look at the apps in [samples](samples/) directory. I will document the API here as time permists.
 
-### To build
-
+### For Developers
+- To build
     $ rake build
 
 Will create the gem inside the pkg directory
 
-### To install the built gem
+- To install the built gem
     
     $ sudo gem install --local pkg/mrdialog-1.0.1.gem
 
-### To install using rake
+- To install using rake
   
     $ sudo rake install
 
-### To install the gem to a specific directory:
+- To install the gem to a specific directory:
  
     $ GEM_HOME=/tmp gem install --local pkg/mrdialog-1.0.1.gem
 
