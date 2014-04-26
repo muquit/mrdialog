@@ -11,15 +11,10 @@ MRDialog is based on the rdialog ruby gem http://rdialog.rubyforge.org/ by
 Aleks Clark.
 
 
-
 I added support for all of the missing widgets, fixed bugs, implemented 
 the examples for all the widgets.  Please look at the ChangeLog.md file 
 for details.
 
-**For now, please look at the examples in the "samples" directory to see 
-how the API works.**
-
-**TODO** write the API document here
 
 ### Requirements
 
@@ -44,7 +39,7 @@ Example:
 Please look at the [screenshots](screenshots/) directory. There are individual screenshots for each of the widget. Also the animated GIF file [all.gif](screenshots/all.gif) contains all the widgets.
 
 ### How to use
-For now please look at the apps in [samples](samples/) directory. I will document the API here as time permists.
+For now, please look at the apps in [samples](samples/) directory to see how the API works. I will document the API here as time permists.
 
     require 'mrdialog'
     dialog = MRDialog.new
