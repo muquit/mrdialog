@@ -15,7 +15,11 @@ I added support for all of the missing widgets, fixed bugs, implemented
 the examples for all the widgets.  Please look at the ChangeLog.md file 
 for details.
 
-If you have a bug report, any question, a requests or a suggestion, please enter it in the [Issues](https://github.com/muquit/mrdialog/issues) with an appropriate label. 
+If you have a bug report, any question, a requests or a suggestion, please enter it in the [Issues](https://github.com/muquit/mrdialog/issues) with an appropriate label.
+
+### Screenshots
+Please look at the [screenshots](screenshots/) directory. There are individual screenshots for each of the widgets. Also the animated GIF file [all.gif](screenshots/all.gif) contains all the widgets.
+
 
 ### Requirements
 
@@ -45,8 +49,6 @@ Example:
     $ cd /Library/Ruby/Gems/2.0.0/gems/mrdialog-1.0.1/samples
     $ ./msgbox.rb
 
-### Screenshots
-Please look at the [screenshots](screenshots/) directory. There are individual screenshots for each of the widgets. Also the animated GIF file [all.gif](screenshots/all.gif) contains all the widgets.
 
 ### How to use the API
 For now, please look at the apps in [samples](samples/) directory to see how the API works. I will document the APIs here as time permits.
