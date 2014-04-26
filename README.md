@@ -25,9 +25,7 @@ I tested with ```dialog Version: 1.2-20130928```
 ### To install
 
 ```# gem install mrdialog```
-
 or
-
 ```$ sudo gem install mrdialog```
    
 ### Run the sample apps
