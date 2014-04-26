@@ -41,8 +41,7 @@ Example:
     $ ./msgbox.rb
 
 ### Screenshots
-Please look at the screenshots directory. There are individual screenshots for each of the widget. Also the animated GIF file 
-all.gif contains all the widgets.
+Please look at the [screenshots](screenshots/) directory. There are individual screenshots for each of the widget. Also the animated GIF file [all.gif](screenshots/all.gif) contains all the widgets.
 
 ### To build
 
