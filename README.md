@@ -15,7 +15,7 @@ I added support for all of the missing widgets, fixed bugs, implemented
 the examples for all the widgets.  Please look at the ChangeLog.md file 
 for details.
 
-If you have any question, request or suggestion, please enter it in the [Issues](https://github.com/muquit/mrdialog/issues) with an appropriate label. 
+If you have a bug report, any question, request or suggestion, please enter it in the [Issues](https://github.com/muquit/mrdialog/issues) with an appropriate label. 
 
 ### Requirements
 
