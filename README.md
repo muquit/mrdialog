@@ -30,6 +30,8 @@ dialog HOME: http://invisible-island.net/dialog/dialog.html.
 ```# gem install mrdialog```
 or
 ```$ sudo gem install mrdialog```
+### To uninstall
+```# gem uninstall mrdialog``` or ```$ sudo gem uninstall mrdialog```
    
 ### Run the sample apps
 Find out where the mrdialog gem is installed. Example:
