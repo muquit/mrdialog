@@ -62,7 +62,7 @@ select or unselect an item.
 
 Use a carriage return or the "OK" button to accept  the  current value  in the selected-window and exit.  The results are written using the order displayed in the selected-window. The caller is responsile to create the items properly. Please look at [buildlist.rb](samples/buildlist.rb) for an example.
 
-returna an array of selected tags
+returns an array of selected tags
 
     result_array = buildlist(text="Text Goes Here", items = nil, height=0, width=0, listheight=0)
    
