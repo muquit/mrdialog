@@ -48,8 +48,15 @@ For now please look at the apps in [samples](samples/) directory. I will documen
 
     require 'mrdialog'
     dialog = MRDialog.new
+
+#### Properties
+The various properties of the dialog (shadow, title etc.) can be set by calling the appropriate setters.
+
+TODO
+
+#### Widgets
     
-#### buildlist
+##### buildlist
 A  buildlist  dialog displays two lists, side-by-side.  The list on the left shows unselected items.  The list on the right shows selected  items.  As items are selected or unselected, they move between the lists. SPACE bar is used to
 select or unselect an item.
 
@@ -59,9 +66,44 @@ returna an array of selected tags
 
     result_array = buildlist(text="Text Goes Here", items = nil, height=0, width=0, listheight=0)
    
-    
+#### calendar
 TODO
-
+#### checklist
+TODO
+#### editbox
+TODO
+#### form
+TODO
+#### fselect
+TODO
+#### gauge
+TODO
+#### infobox
+TODO
+#### inputbox
+TODO
+#### menu
+TODO
+#### msgbox
+TODO
+#### passwordbox
+TODO
+#### pause
+TODO
+#### prgbox
+TODO
+#### progressbox
+TODO
+#### programbox
+TODO
+#### radiolist
+TODO
+#### timebox
+TODO
+#### treeview
+TODO
+#### yesno
+TODO
 ### For Developers
 - To build
     ```$ rake build```
