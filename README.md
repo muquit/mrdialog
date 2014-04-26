@@ -31,7 +31,7 @@ or
 ```$ sudo gem install mrdialog```
    
 ### Run the sample apps
-Find out where the mrdialog gem is installed. 
+Find out where the mrdialog gem is installed. Example:
 
     $ gem which mrdialog
     /Library/Ruby/Gems/2.0.0/gems/mrdialog-1.0.1/lib/mrdialog.rb
