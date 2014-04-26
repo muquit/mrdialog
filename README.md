@@ -23,7 +23,7 @@ how the API works.**
 
 ### Requirements
 
-* dialog must be installed. dialog home is: http://invisible-island.net/dialog/dialog.html
+* dialog must be installed. dialog home is: http://invisible-island.net/dialog/dialog.html. Note: the dialog program that is available in ubuntu is little old.
 
 ### To install
 
