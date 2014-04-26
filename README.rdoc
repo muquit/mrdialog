@@ -31,6 +31,15 @@ for details.
    # gem install mrdialog
    or
    $ sudo gem install mrdialog
+   
+=== Sample apps
+Find out where the mrdialog gem is installed. Go to the directory samples and run the apps.
+Example:
+
+   $ gem which mrdialog
+   /Library/Ruby/Gems/2.0.0/gems/mrdialog-1.0.1/lib/mrdialog.rb
+   $ cd /Library/Ruby/Gems/2.0.0/gems/mrdialog-1.0.1/samples
+   $ ./msgbox.rb
 
 === To build
 
