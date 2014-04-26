@@ -40,8 +40,8 @@ Example:
 ### Screenshots
 Please look at the [screenshots](screenshots/) directory. There are individual screenshots for each of the widgets. Also the animated GIF file [all.gif](screenshots/all.gif) contains all the widgets.
 
-### How to use
-For now, please look at the apps in [samples](samples/) directory to see how the API works. I will document the API here as time permists.
+### How to use the API
+For now, please look at the apps in [samples](samples/) directory to see how the API works. I will document the APIs here as time permits.
 
     require 'mrdialog'
     dialog = MRDialog.new
