@@ -48,13 +48,13 @@ For now please look at the apps in [samples](samples/) directory. I will documen
 
 ### For Developers
 - To build
-    $ rake build
+    ```$ rake build```
 
 Will create the gem inside the pkg directory
 
 - To install the built gem
     
-    $ sudo gem install --local pkg/mrdialog-1.0.1.gem
+    ```$ sudo gem install --local pkg/mrdialog-1.0.1.gem```
 
 - To install using rake
   
@@ -62,7 +62,7 @@ Will create the gem inside the pkg directory
 
 - To install the gem to a specific directory:
  
-    $ GEM_HOME=/tmp gem install --local pkg/mrdialog-1.0.1.gem
+    ```$ GEM_HOME=/tmp gem install --local pkg/mrdialog-1.0.1.gem```
 
 The gem will be installed in /tmp/gems directory
 
