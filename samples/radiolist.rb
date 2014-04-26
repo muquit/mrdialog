@@ -6,7 +6,14 @@ require 'pp'
 
 class TestRadiolist
   ME = File.basename($0)
+
   def initialize
+    if ENV['CHANGE_TITLE']
+      if ME =~ /(.+)\.rb$/
+        base = $1
+        puts "\033]0;mrdialog - #{base}\007"
+      end
+    end
   end
 
   def doit
@@ -50,6 +57,7 @@ EOF
       data.select = false
       items.push(data.to_a)
 
+      dialog.title = "RADIOLIST"
       selected_item = dialog.radiolist(text, items)
       exit_code = dialog.exit_code
       case exit_code

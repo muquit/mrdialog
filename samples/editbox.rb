@@ -6,6 +6,12 @@ require 'tempfile'
 
 begin
     ME = File.basename($0)
+    if ENV['CHANGE_TITLE']
+      if ME =~ /(.+)\.rb$/
+        base = $1
+        puts "\033]0;mrdialog - #{base}\007"
+      end
+    end
 
     tmp = Tempfile.new('editbox')
     tmp.puts <<-EOF
@@ -45,6 +51,7 @@ EOF
     dialog = MRDialog.new
     dialog.clear = true
     dialog.shadow = false
+    dialog.title = "EDITBOX"
     dialog.logger = Logger.new(ENV["HOME"] + "/dialog_" + ME + ".log")
 
     output = dialog.editbox(tmp.path, height, width)

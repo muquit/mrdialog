@@ -7,9 +7,15 @@ require [File.expand_path(File.dirname(__FILE__)), '..', 'lib', 'mrdialog'].join
 require 'pp'
 
 class TestForm
-           ME = File.basename($0)
+      ME = File.basename($0)
       HIDDEN  = 1 
     READ_ONLY = 2
+    if ENV['CHANGE_TITLE']
+      if ME =~ /(.+)\.rb$/
+        base = $1
+        puts "\033]0;mrdialog - #{base}\007"
+      end
+    end
   def initialize
     @a = []
     @h = {}

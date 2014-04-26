@@ -6,6 +6,13 @@ require 'pp'
 
 begin
   ME = File.basename($0)
+  if ENV['CHANGE_TITLE']
+    if ME =~ /(.+)\.rb$/
+      base = $1
+      puts "\033]0;mrdialog - #{base}\007"
+    end
+  end
+
   text = <<EOF
 Hi, this is an input dialog box. You can use
 this to ask questions that require the user

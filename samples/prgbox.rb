@@ -6,7 +6,14 @@ require 'pp'
 
 class TestPrgBox1
   ME = File.basename($0)    
+
   def initialize
+    if ENV['CHANGE_TITLE']
+      if ME =~ /(.+)\.rb$/
+        base = $1
+        puts "\033]0;mrdialog - #{base}\007"
+      end
+    end
   end
 
   def doit

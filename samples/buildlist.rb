@@ -5,6 +5,12 @@ require 'pp'
 
 begin
     ME = File.basename($0)
+    if ENV['CHANGE_TITLE']
+      if ME =~ /(.+)\.rb$/
+        base = $1
+        puts "\033]0;mrdialog - #{base}\007"
+      end
+    end
     text = <<EOF
 This example is taken from dialog/samples/menulist
 shell script.
@@ -12,7 +18,7 @@ shell script.
 Hi, this is a buildlist dialog. The list on the left
 shows the unselected items. The list on the right shows
 the selected  items.  Use SPACE bar to select/unselect 
-items.
+items. Shadow is set to false.
 
 EOF
     items = []
@@ -56,6 +62,8 @@ EOF
 
     dialog = MRDialog.new
     dialog.clear = true
+    dialog.shadow = false
+    dialog.title = "BUILDLIST"
     dialog.logger = Logger.new(ENV["HOME"] + "/dialog_" + ME + ".log")
 
     height = 0

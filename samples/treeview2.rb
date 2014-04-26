@@ -6,6 +6,13 @@ require 'pp'
 
 begin
     ME = File.basename($0)
+    if ENV['CHANGE_TITLE']
+      if ME =~ /(.+)\.rb$/
+        base = $1
+        puts "\033]0;mrdialog - #{base}\007"
+      end
+    end
+
     text = <<-EOF
 This example is taken from dialog/samples/treeview2
 shell script.

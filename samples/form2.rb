@@ -9,6 +9,12 @@ require [File.expand_path(File.dirname(__FILE__)), '..', 'lib', 'mrdialog'].join
 
 class TestForm2
     ME = File.basename($0)
+    if ENV['CHANGE_TITLE']
+      if ME =~ /(.+)\.rb$/
+        base = $1
+        puts "\033]0;mrdialog - #{base}\007"
+      end
+    end
     def initialize
         @hsh = {}
     end
@@ -135,6 +141,7 @@ EOF
             data.ilen = 0
             items.push(data.to_a)
 
+            dialog.title = "FORM"
             @hsh = dialog.form(text, items, 20, 60, 0)
             exit_code = dialog.exit_code
                 @hsh.each do |key, val|

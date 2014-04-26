@@ -7,6 +7,13 @@ require [File.expand_path(File.dirname(__FILE__)), '..', 'lib', 'mrdialog'].join
 
 class TestGauge
   ME = File.basename($0)    
+  if ENV['CHANGE_TITLE']
+    if ME =~ /(.+)\.rb$/
+      base = $1
+      puts "\033]0;mrdialog - #{base}\007"
+    end
+  end
+
   def initialize
   end
 

@@ -6,8 +6,13 @@ require 'pp'
 
 begin
     ME = File.basename($0)
-    # uid=1000(muquit) gid=1000(muquit)
-    # groups=1000(muquit),4(adm),24(cdrom),27(sudo),30(dip),46(plugdev),107(lpadmin),125(sambashare)
+    if ENV['CHANGE_TITLE']
+      if ME =~ /(.+)\.rb$/
+        base = $1
+        puts "\033]0;mrdialog - #{base}\007"
+      end
+    end
+
     user = ''
     uid = ''
     gid = ''
@@ -74,6 +79,7 @@ EOF
     data.ilen = 0
     items.push(data.to_a)
 
+    dialog.title = "FORM"
     result_hash = dialog.form(text, items, 20, 50, 0)
     if result_hash
         puts "Resulting data:"

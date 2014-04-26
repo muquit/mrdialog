@@ -10,6 +10,13 @@ require 'date'
 
 begin
     ME = File.basename($0)
+    if ENV['CHANGE_TITLE']
+      if ME =~ /(.+)\.rb$/
+        base = $1
+        puts "\033]0;mrdialog - #{base}\007"
+      end
+    end
+
     text = "Please choose a date..."
 
     height = 0
