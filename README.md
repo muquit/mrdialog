@@ -58,7 +58,7 @@ Will create the gem inside the pkg directory
 
 - To install using rake
   
-    $ sudo rake install
+    ```$ sudo rake install```
 
 - To install the gem to a specific directory:
  
