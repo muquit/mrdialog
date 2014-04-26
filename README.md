@@ -59,7 +59,7 @@ Use a carriage return or the "OK" button to accept  the  current value  in the s
 
 returns an array of selected tags
 
-    result_array = buildlist(text="Text Goes Here", items = nil, height=0, width=0, listheight=0)
+    result_array = dialog.buildlist(text="Text Goes Here", items, height=0, width=0, listheight=0)
    
 #### calendar
 TODO
