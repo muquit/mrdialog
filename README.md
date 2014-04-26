@@ -32,7 +32,7 @@ or
 Find out where the mrdialog gem is installed. 
 
     $ gem which mrdialog
-    /Library/Ruby/Gems/2.0.0/gems/mrdialog-1.0.1/lib/mrdialog.rb
+/Library/Ruby/Gems/2.0.0/gems/mrdialog-1.0.1/lib/mrdialog.rb
 
 Go to the ```samples``` directory and run the apps.
 Example:
