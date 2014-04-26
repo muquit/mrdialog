@@ -18,9 +18,11 @@ for details.
 
 ### Requirements
 
-* dialog must be installed. dialog home is: http://invisible-island.net/dialog/dialog.html. Note: the dialog program that is available in ubuntu is little old. Check the dialog version by typing ```dialog --version```
+* The [dialog](http://invisible-island.net/dialog/dialog.html) program must be installed. d Note: the dialog program that is available in ubuntu is little old. Check the dialog version by typing ```dialog --version```
 
 I tested with ```dialog Version: 1.2-20130928```
+
+dialog HOME: http://invisible-island.net/dialog/dialog.html.
 
 ### To install
 
