@@ -125,5 +125,4 @@ Will create the gem inside the pkg directory
 The gem will be installed in /tmp/gems directory
 
 ### Copyright
-mrdialog is based on rdialog ruby gem. The original license or rdialog is MIT and my code is also free to use under the
-terms of the MIT license. Please look at the [LICENSE.txt](LICENSE.txt) file for details.
+mrdialog is based on [rdialog](http://rdialog.rubyforge.org/) ruby gem with MIT license. My code is also free to use under the terms of the MIT license. Please look at the [LICENSE.txt](LICENSE.txt) file for details.
