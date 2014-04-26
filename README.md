@@ -46,6 +46,10 @@ Please look at the [screenshots](screenshots/) directory. There are individual s
 ### How to use
 For now please look at the apps in [samples](samples/) directory. I will document the API here as time permists.
 
+    require 'mrdialog'
+    dialog = MRDialog.new
+    result = dialog.<widget>(args)
+
 ### For Developers
 - To build
     ```$ rake build```
