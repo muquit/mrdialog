@@ -27,7 +27,7 @@ for details.
 ```$ sudo gem install mrdialog```
    
 ### Sample apps
-Find out where the mrdialog gem is installed. Go to the directory samples and run the apps.
+Find out where the mrdialog gem is installed. Go to the ```samples`` directory and run the apps.
 Example:
 
     $ gem which mrdialog
