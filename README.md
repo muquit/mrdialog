@@ -10,9 +10,7 @@ are in correct order for example.
 MRDialog is based on the rdialog ruby gem http://rdialog.rubyforge.org/ by
 Aleks Clark.
 
-The original license is MIT and my code is also free to use under the
-terms of the MIT license. Please look at the LICENSE.txt file for
-details.
+
 
 I added support for all of the missing widgets, fixed bugs, implemented 
 the examples for all the widgets.  Please look at the ChangeLog.md file 
@@ -65,3 +63,7 @@ Will create the gem inside the pkg directory
     $ GEM_HOME=/tmp gem install --local pkg/mrdialog-1.0.1.gem
 
 The gem will be installed in /tmp/gems directory
+
+### Copyright
+mrdialog is based on rdialog ruby gem. The original license or rdialog is MIT and my code is also free to use under the
+terms of the MIT license. Please look at the [LICENSE.txt](LICENSE.txt) file for details.
