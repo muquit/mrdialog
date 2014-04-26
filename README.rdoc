@@ -1,4 +1,4 @@
-= MRDialog
+=== MRDialog
 
 mrdialog is a pure ruby library for the ncurses dialog program. dialog is
 a command line tool that can present questions, messages, forms using 
@@ -26,7 +26,7 @@ for details.
 
 * dialog must be installed. dialog home is: http://invisible-island.net/dialog/dialog.html
 
-== To install
+=== To install
 
    # gem install mrdialog
    or
@@ -40,6 +40,10 @@ Example:
    /Library/Ruby/Gems/2.0.0/gems/mrdialog-1.0.1/lib/mrdialog.rb
    $ cd /Library/Ruby/Gems/2.0.0/gems/mrdialog-1.0.1/samples
    $ ./msgbox.rb
+
+=== Screenshots
+Please look at the screenshots directory. There are individual screenshots for each of the widget. Also the animated GIF file 
+all.gif contains all the widgets.
 
 === To build
 
