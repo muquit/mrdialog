@@ -50,9 +50,7 @@ For now please look at the apps in [samples](samples/) directory. I will documen
     dialog = MRDialog.new
     
 #### buildlist
-
-   
-- A  buildlist  dialog displays two lists, side-by-side.  The list on the left shows unselected items.  The list on the right shows selected  items.  As items are selected or unselected, they move between the lists. SPACE bar is used to
+A  buildlist  dialog displays two lists, side-by-side.  The list on the left shows unselected items.  The list on the right shows selected  items.  As items are selected or unselected, they move between the lists. SPACE bar is used to
 select or unselect an item.
 
 Use a carriage return or the "OK" button to accept  the  current value  in the selected-window and exit.  The results are written using the order displayed in the selected-window. The caller is responsile to create the items properly. Please look at [buildlist.rb](samples/buildlist.rb) for an example.
