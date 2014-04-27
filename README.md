@@ -1,6 +1,8 @@
 ### MRDialog
 
-mrdialog is a pure ruby library for the ncurses dialog program. dialog is
+mrdialog is a pure ruby library for the ncurses 
+[dialog](http://invisible-island.net/dialog/dialog.html) program. 
+[dialog](http://invisible-island.net/dialog/dialog.html) is
 a command line tool that can present questions, messages, forms using 
 dialog boxes from a shell script. However, it is painful to program dialog
 from shell scripts due to lack of data structure etc. You constantly have
