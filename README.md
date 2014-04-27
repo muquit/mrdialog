@@ -76,6 +76,7 @@ The various properties of the dialog (shadow, title etc.) can be set by calling 
 |--------|-------|-----------|-------|
 |shadow|```dialog.shadow = false``` | Draw a shadow to the right and bottom of each dialog box.| true|
 |title|```dialog.title = 'foo'```|Specifies a title string to be displayed at the top of the  dialog box|N/A|
+|logger|```dialog.logger = Logger.new("dialog.log")```|Debug messages will be logged to the specified ruby Logger|N/A|
 
 #### Widgets
 The following dialog widgets are supported:
