@@ -15,7 +15,7 @@ I added support for all of the missing widgets, fixed bugs, implemented
 the examples for all the widgets.  Please look at the ChangeLog.md file 
 for details.
 
-If you have a bug report, any question, a requests or a suggestion, please enter it in the [Issues](https://github.com/muquit/mrdialog/issues) with an appropriate label.
+If you have bug reports, questions, requests or  suggestions, please enter it in the [Issues](https://github.com/muquit/mrdialog/issues) with an appropriate label.
 
 ### Screenshots
 Please look at the [screenshots](screenshots/) directory. There are individual screenshots for each of the widgets. Also the animated GIF file [all.gif](screenshots/all.gif) contains all the widgets.
