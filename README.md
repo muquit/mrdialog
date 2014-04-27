@@ -72,6 +72,11 @@ For now, please look at the apps in [samples](samples/) directory to see how the
 #### Properties
 The various properties of the dialog (shadow, title etc.) can be set by calling the appropriate setters.
 
+|Property|Example|Description|Default|
+|--------|-------|-----------|-------|
+|shadow|dialog.shadow = false | Draw a shadow to the right and bottom of each
+dialog box.| true|
+
 #### Widgets
 The following dialog widgets are supported:
 
