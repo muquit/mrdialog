@@ -59,8 +59,6 @@ For now, please look at the apps in [samples](samples/) directory to see how the
 #### Properties
 The various properties of the dialog (shadow, title etc.) can be set by calling the appropriate setters.
 
-Documentation: TODO
-
 #### Widgets
 The following dialog widgets are supported:
 
@@ -76,6 +74,7 @@ The following dialog widgets are supported:
 * menu
 * msgbox
 * passwordbox
+* passwordform
 * pause
 * prgbox
 * progressbox
@@ -96,60 +95,59 @@ returns an array of selected tags
     result_array = dialog.buildlist(text="Text Goes Here", items, height=0, width=0, listheight=0)
    
 #### calendar
-Documentation: TODO
+Please look at [calendar.rb](samples/calendar.rb) for an example.
 #### checklist
-Documentation: TODO
+Please look at [checklist.rb](samples/checklist.rb) for an example.
 #### editbox
-Documentation: TODO
+Please look at [editbox.rb](samples/editbox.rb) for an example.
 #### form
-Documentation: TODO
+Please look at 
+[form1.rb](samples/form1.rb), [form2.rb](samples/form2.rb), [form3.rb](samples/form3.rb) 
+for examples.
 #### fselect
-Documentation: TODO
+Please look at [fselect.rb](samples/fselect.rb) for an example.
 #### gauge
-Documentation: TODO
+Please look at [gauge.rb](samples/gauge.rb) for an example.
 #### infobox
-Documentation: TODO
+Please look at [infobox.rb](samples/infobox.rb) for an example.
 #### inputbox
-Documentation: TODO
+Please look at [inputbox.rb](samples/inputbox.rb) for an example.
 #### menu
-Documentation: TODO
+Please look at [menubox.rb](samples/menubox.rb) for an example.
 #### msgbox
-Documentation: TODO
+Please look at [msgbox.rb](samples/msgbox.rb) for an example.
 #### passwordbox
-Documentation: TODO
+Please look at [password.rb](samples/password.rb), [password2.rb](samples/password2.rb)
+for examples.
+#### passwordform
+Please look at [passwordform.rb](samples/passwordform.rb) for an example.
 #### pause
-Documentation: TODO
+Please look at [pause.rb](samples/pause.rb) for an example.
 #### prgbox
-Documentation: TODO
+Please look at [prgbox.rb](samples/prgbox.rb) for an example.
 #### progressbox
-Documentation: TODO
+Please look at [progressbox.rb](samples/progressbox.rb) for an example.
 #### programbox
-Documentation: TODO
+Please look at [programbox.rb](samples/programbox.rb) for an example.
 #### radiolist
-Documentation: TODO
+Please look at [radiolist.rb](samples/radiolist.rb) for an example.
 #### timebox
-Documentation: TODO
+Please look at [timebox.rb](samples/timebox.rb) for an example.
 #### treeview
-Documentation: TODO
+Please look at [treeview.rb](samples/treeview.rb) for an example.
 #### yesno
-Documentation: TODO
+Please look at [yesno.rb](samples/yesno.rb) for an example.
+
 ### For Developers
-- To build
-    ```$ rake build```
+- To build: ```$ rake build```
 
 Will create the gem inside the pkg directory
 
-- To install the built gem
-    
-    ```$ sudo gem install --local pkg/mrdialog-1.0.1.gem```
+- To install the built gem: ```$ sudo gem install --local pkg/mrdialog-1.0.1.gem```
 
-- To install using rake
-  
-    ```$ sudo rake install```
+- To install using rake: ```$ sudo rake install```
 
-- To install the gem to a specific directory:
- 
-    ```$ GEM_HOME=/tmp gem install --local pkg/mrdialog-1.0.1.gem```
+- To install the gem to a specific directory: ```$ GEM_HOME=/tmp gem install --local pkg/mrdialog-1.0.1.gem```
 
 The gem will be installed in /tmp/gems directory
 
