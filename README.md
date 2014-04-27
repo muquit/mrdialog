@@ -1,6 +1,7 @@
 ### MRDialog
 
-mrdialog is a pure ruby library for the ncurses 
+mrdialog is a pure 
+[ruby](https://www.ruby-lang.org/) library for the ncurses 
 [dialog](http://invisible-island.net/dialog/dialog.html) program. 
 [dialog](http://invisible-island.net/dialog/dialog.html) is
 a command line tool that can present questions, messages, forms using 
