@@ -12,8 +12,10 @@ managers, you have used 'dialog' like programs.
 However, it is painful to program dialog from shell scripts due to lack of 
 data structure. You constantly have to watch if the correct number of 
 items are specified, if the arguments are in correct order for example. It is
-lot of fun to program dialog from an object oriented scripting language like 
-[ruby](https://www.ruby-lang.org/).
+a lot of fun to program dialog from an object oriented scripting language like 
+[ruby](https://www.ruby-lang.org/). Compare the sample shell scripts of dialog program with
+the sample ruby scripts of mrdialog in the [samples](samples/) directory, I think you will
+agree.
 
 MRDialog is based on the rdialog ruby gem http://rdialog.rubyforge.org/ by
 Aleks Clark.
