@@ -4,10 +4,15 @@ mrdialog is a pure ruby library for the ncurses
 [dialog](http://invisible-island.net/dialog/dialog.html) program. 
 [dialog](http://invisible-island.net/dialog/dialog.html) is
 a command line tool that can present questions, messages, forms using 
-dialog boxes from a shell script. However, it is painful to program dialog
-from shell scripts due to lack of data structure etc. You constantly have
-to watch if the correct number of items are specified, if the arguments 
-are in correct order for example. 
+dialog boxes from a shell script. If you compiled linux kernel and typed 'make
+menuconfig, configured Linux from command line with various configuration
+managers, you have used 'dialog' like programs.
+
+However, it is painful to program dialog from shell scripts due to lack of 
+data structure. You constantly have to watch if the correct number of 
+items are specified, if the arguments are in correct order for example. It is
+lot of fun to program dialog from an object oriented scripting language like 
+[ruby](https://www.ruby-lang.org/).
 
 MRDialog is based on the rdialog ruby gem http://rdialog.rubyforge.org/ by
 Aleks Clark.
