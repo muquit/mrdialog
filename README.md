@@ -26,8 +26,7 @@ Please look at the [screenshots](screenshots/) directory. There are individual s
 
 
 ### Requirements
-
-* The [dialog](http://invisible-island.net/dialog/dialog.html) program must be installed. d Note: the dialog program that is available in ubuntu is little old. Check the dialog version by typing ```dialog --version```
+The [dialog](http://invisible-island.net/dialog/dialog.html) program must be installed. d Note: the dialog program that is available in ubuntu is little old. Check the dialog version by typing ```dialog --version```
 
 I tested with ```dialog Version: 1.2-20130928```
 
