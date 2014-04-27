@@ -10,9 +10,9 @@ are in correct order for example.
 MRDialog is based on the rdialog ruby gem http://rdialog.rubyforge.org/ by
 Aleks Clark.
 
+I did the following:
 
-I added:
-* support for all of the missing widgets
+* Added upport for all of the missing widgets
 * Fixed the bugs I found
 * I mplemented the examples for all the widgets.  
 * I am in the process of documenting the APIs here.
