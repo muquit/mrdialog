@@ -22,7 +22,7 @@ Please look at the [ChangeLog.md](ChangeLog.md) file for details.
 If you have bug reports, questions, requests or  suggestions, please enter it in the [Issues](https://github.com/muquit/mrdialog/issues) with an appropriate label.
 
 ### Screenshots
-Please look at the [screenshots](screenshots/) directory. There are individual screenshots for each of the widgets. Also the animated GIF file [all.gif](screenshots/all.gif) contains all the widgets.
+Please look at the [screenshots](screenshots/) directory. There are individual screenshots for each of the widgets. Also the animated GIF file [all.gif](screenshots/all.gif) contains screenshot of  all the widgets. 
 
 
 ### Requirements
