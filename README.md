@@ -12,8 +12,8 @@ Aleks Clark.
 
 I did the following:
 
-* Added upport for all of the missing widgets
-* Fixed the bugs I found
+* Added upport for all of the missing widgets.
+* Fixed the bugs I found.
 * I mplemented the examples for all the widgets.  
 * I am in the process of documenting the APIs here.
 
