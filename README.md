@@ -62,6 +62,28 @@ The various properties of the dialog (shadow, title etc.) can be set by calling 
 TODO
 
 #### Widgets
+The following dialog widgets are supported:
+
+* buildlist
+* calendar
+* checklist
+* editbox
+* form
+* fselect
+* gauge
+* infobox
+* inputbox
+* menu
+* msgbox
+* passwordbox
+* pause
+* prgbox
+* progressbox
+* programbox
+* radiolist
+* timebox
+* treeview
+* yesno
     
 ##### buildlist
 A  buildlist  dialog displays two lists, side-by-side.  The list on the left shows unselected items.  The list on the right shows selected  items.  As items are selected or unselected, they move between the lists. SPACE bar is used to
