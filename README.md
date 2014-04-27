@@ -70,7 +70,7 @@ For now, please look at the apps in [samples](samples/) directory to see how the
     dialog = MRDialog.new
 
 #### Properties
-The various properties of the dialog (shadow, title etc.) can be set by calling the appropriate setters.
+The various properties of the dialog (shadow, title etc.) can be set by calling the appropriate setters. The supported propertes are shown below:
 
 |Property|Example|Description|Default|
 |--------|-------|-----------|-------|
