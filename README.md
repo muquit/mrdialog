@@ -74,8 +74,7 @@ The various properties of the dialog (shadow, title etc.) can be set by calling 
 
 |Property|Example|Description|Default|
 |--------|-------|-----------|-------|
-|shadow|dialog.shadow = false | Draw a shadow to the right and bottom of each
-dialog box.| true|
+|shadow|```dialog.shadow = false``` | Draw a shadow to the right and bottom of each dialog box.| true|
 
 #### Widgets
 The following dialog widgets are supported:
