@@ -79,6 +79,7 @@ The various properties of the dialog (shadow, title etc.) can be set by calling 
 |logger|```dialog.logger = Logger.new("dialog.log")```|Debug messages will be logged to the specified ruby Logger|N/A|
 |clear|```dialog.clear = true```|Clears the widget screen, keeping only the screen_color background.|false|
 |insecure|```dialog.insecure = true```|Makes the password widget friendlier but less secure, by echoing asterisks for each character.|false|
+|ascii_lines|```dialog.ascii_lines = true```|Rather than draw graphics lines around boxes, draw ASCII "+" and "-" in the same place.  See also "--no-lines".|false|
 |...|...|...|...|
 
 #### Widgets
