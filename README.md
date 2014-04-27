@@ -11,9 +11,13 @@ MRDialog is based on the rdialog ruby gem http://rdialog.rubyforge.org/ by
 Aleks Clark.
 
 
-I added support for all of the missing widgets, fixed bugs, implemented 
-the examples for all the widgets.  Please look at the ChangeLog.md file 
-for details.
+I added:
+* support for all of the missing widgets
+* Fixed the bugs I found
+* I mplemented the examples for all the widgets.  
+* I am in the process of documenting the APIs here.
+
+Please look at the [ChangeLog.md](ChangeLog.md) file for details.
 
 If you have bug reports, questions, requests or  suggestions, please enter it in the [Issues](https://github.com/muquit/mrdialog/issues) with an appropriate label.
 
