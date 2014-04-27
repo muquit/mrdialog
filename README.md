@@ -59,7 +59,7 @@ For now, please look at the apps in [samples](samples/) directory to see how the
 #### Properties
 The various properties of the dialog (shadow, title etc.) can be set by calling the appropriate setters.
 
-TODO
+Documentation: TODO
 
 #### Widgets
 The following dialog widgets are supported:
@@ -96,43 +96,43 @@ returns an array of selected tags
     result_array = dialog.buildlist(text="Text Goes Here", items, height=0, width=0, listheight=0)
    
 #### calendar
-TODO
+Documentation: TODO
 #### checklist
-TODO
+Documentation: TODO
 #### editbox
-TODO
+Documentation: TODO
 #### form
-TODO
+Documentation: TODO
 #### fselect
-TODO
+Documentation: TODO
 #### gauge
-TODO
+Documentation: TODO
 #### infobox
-TODO
+Documentation: TODO
 #### inputbox
-TODO
+Documentation: TODO
 #### menu
-TODO
+Documentation: TODO
 #### msgbox
-TODO
+Documentation: TODO
 #### passwordbox
-TODO
+Documentation: TODO
 #### pause
-TODO
+Documentation: TODO
 #### prgbox
-TODO
+Documentation: TODO
 #### progressbox
-TODO
+Documentation: TODO
 #### programbox
-TODO
+Documentation: TODO
 #### radiolist
-TODO
+Documentation: TODO
 #### timebox
-TODO
+Documentation: TODO
 #### treeview
-TODO
+Documentation: TODO
 #### yesno
-TODO
+Documentation: TODO
 ### For Developers
 - To build
     ```$ rake build```
