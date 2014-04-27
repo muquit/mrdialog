@@ -78,6 +78,7 @@ The various properties of the dialog (shadow, title etc.) can be set by calling 
 |title|```dialog.title = 'foo'```|Specifies a title string to be displayed at the top of the  dialog box|N/A|
 |logger|```dialog.logger = Logger.new("dialog.log")```|Debug messages will be logged to the specified ruby Logger|N/A|
 |clear|```dialog.clear = true```|Clears the widget screen, keeping only the screen_color background.|false|
+|insecure|```dialog.insecure = true```|Makes the password widget friendlier but less secure, by echoing asterisks for each character.|false|
 |...|...|...|...|
 
 #### Widgets
