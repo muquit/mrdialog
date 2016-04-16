@@ -6,7 +6,7 @@
  dialog = MRDialog.new()
  dialog.notags = true
  ```
-* Added accesor `dialog_options`. It can be used to pass any valid dialog option. `man dialog` and look at the **OPTIONS** section. It is the caller's responsibily to specify correct options, no validation will be done. Example:
+* Added accessor `dialog_options`. It can be used to pass any valid dialog option. `man dialog` and look at the **OPTIONS** section. It is the caller's responsibily to specify correct options, no validation will be done. Example:
 
 ```
 dialog = MRDialog.new()
