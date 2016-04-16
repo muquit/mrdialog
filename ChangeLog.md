@@ -1,3 +1,21 @@
+## 1.0.2
+
+* Added accessor `notags`. It can be used with checklist for example. The default value is false.
+
+ ```
+ dialog = MRDialog.new()
+ dialog.notags = true
+ ```
+* Added accesor `dialog_options`. It can be used to pass any valid dialog option. `man dialog` and look at the **OPTIONS** section. It is the caller's responsibily to specify correct options, no validation will be done. Example:
+
+```
+dialog = MRDialog.new()
+dialog.dialog_options = "--no-tags"
+```
+This ia exactly same as `dialog.notags = true`
+
+(Apr-16-2016 )
+
 ## 1.0.1
 
 * Jeweler support for making the gem.

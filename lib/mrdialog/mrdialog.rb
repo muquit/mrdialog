@@ -94,6 +94,9 @@ class MRDialog
     # 
     attr_accessor :shadow
 
+    # MMM
+    attr_accessor :notags
+
     #
     # Sleep (delay) for the given integer of seconds after processing 
     # a dialog box.
@@ -129,9 +132,12 @@ class MRDialog
   attr_accessor :dialog_ok
   attr_accessor :dialog_cancel
   attr_accessor :dialog_help
-  attr_accessor :dialog_extra
   attr_accessor :dialog_item_help
   attr_accessor :dialog_esc
+  attr_accessor :dialog_extra
+
+  # pass dialog's option exactly
+  attr_accessor :dialog_options
 
   #
   # ruby logger
@@ -166,6 +172,7 @@ class MRDialog
         # muquit@muquit.com mod starts--
         $stdout.sync = true
         $stderr.sync = true
+#        @tags = true
         @dialog_ok = DIALOG_OK
         @dialog_cancel = DIALOG_CANCEL
         @dialog_help = DIALOG_HELP
@@ -1187,6 +1194,16 @@ class MRDialog
           else 
             ostring += "--no-shadow "
           end
+        end
+
+        unless @notags == nil
+          if @notags == true
+            ostring += "--no-tags "
+          end
+        end
+
+        if @dialog_options
+          ostring += " #{@dialog_options} "
         end
 
         if @sleep

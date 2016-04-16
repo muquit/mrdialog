@@ -31,6 +31,9 @@ Please look at the [ChangeLog.md](ChangeLog.md) file for details. Please look at
 
 If you have bug reports, questions, requests or  suggestions, please enter it in the [Issues](https://github.com/muquit/mrdialog/issues) with an appropriate label.
 
+### Latest Version
+The latest version is 1.0.2.
+
 ### Screenshots
 Please look at the [screenshots](screenshots/) directory. There are individual screenshots for each of the widgets. Also the animated GIF file [all.gif](screenshots/all.gif) contains screenshot of  all the widgets. 
 
@@ -166,11 +169,11 @@ Please look at [yesno.rb](samples/yesno.rb) for an example.
 
 Will create the gem inside the pkg directory
 
-- To install the built gem: ```$ sudo gem install --local pkg/mrdialog-1.0.1.gem```
+- To install the built gem: ```$ sudo gem install --local pkg/mrdialog-1.0.2.gem```
 
 - To install using rake: ```$ sudo rake install```
 
-- To install the gem to a specific directory: ```$ GEM_HOME=/tmp gem install --local pkg/mrdialog-1.0.1.gem```
+- To install the gem to a specific directory: ```$ GEM_HOME=/tmp gem install --local pkg/mrdialog-1.0.2.gem```
 
 The gem will be installed in /tmp/gems directory
 

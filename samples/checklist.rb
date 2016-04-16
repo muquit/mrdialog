@@ -22,7 +22,8 @@ off. If there are more items than can fit on the
 screen, the list will be scrolled. You can use the
 UP/DOWN arrow keys, the first letter of the choice as a
 hot key, or the number keys 1-9 to choose an option.
-Press SPACE to toggle an option on/off.
+Press SPACE to toggle an option on/off. Set the option
+notags to true if you don't want to diaplay the tags.
 
   Which of the following are fruits?
 
@@ -55,6 +56,8 @@ EOF
     items.push(data.to_a)
 
     dialog = MRDialog.new
+#    dialog.notags = false
+#    dialog.dialog_options = "--no-tags"
     dialog.clear = true
     dialog.title = "CHECKLIST"
     dialog.logger = Logger.new(ENV["HOME"] + "/dialog_" + ME + ".log")
@@ -63,9 +66,11 @@ EOF
     exit_code = dialog.exit_code
     puts selected_items.class
     puts "Exit code: #{exit_code}"
-    puts "Selected Items:"
-    selected_items.each do |item|
-      puts "  '#{item}'"
+    if selected_items
+      puts "Selected Items:"
+      selected_items.each do |item|
+        puts "  '#{item}'"
+      end
     end
 
 rescue => e
