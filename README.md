@@ -27,12 +27,13 @@ I did the following:
 * Implemented the examples for all the widgets.  
 * I am in the process of documenting the APIs here.
 
-Please look at the [ChangeLog.md](ChangeLog.md) file for details. Please look at he [screenshots](screenshots/) to see how the widgets look like.
+
 
 If you have bug reports, questions, requests or  suggestions, please enter it in the [Issues](https://github.com/muquit/mrdialog/issues) with an appropriate label.
 
 ### Latest Version
-The latest version is 1.0.2.
+The latest version is 1.0.2. 
+Please look at the [ChangeLog.md](ChangeLog.md) file for details. Please look at he [screenshots](screenshots/) to see how the widgets look like.
 
 ### Screenshots
 Please look at the [screenshots](screenshots/) directory. There are individual screenshots for each of the widgets. Also the animated GIF file [all.gif](screenshots/all.gif) contains screenshot of  all the widgets. 
