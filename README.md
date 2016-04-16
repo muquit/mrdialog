@@ -25,9 +25,6 @@ I did the following:
 * Added features and support for all of the missing widgets.
 * Fixed the bugs I found.
 * Implemented the examples for all the widgets.  
-* I am in the process of documenting the APIs here.
-
-
 
 If you have bug reports, questions, requests or  suggestions, please enter it in the [Issues](https://github.com/muquit/mrdialog/issues) with an appropriate label.
 
@@ -68,7 +65,7 @@ Example:
 
 
 ### How to use the API
-For now, please look at the apps in [samples](samples/) directory to see how the API works. I will document the APIs here as time permits.
+For now, please look at the apps in [samples](samples/) directory to see how the API works. 
 
     require 'mrdialog'
     dialog = MRDialog.new
@@ -84,7 +81,7 @@ The various properties of the dialog (shadow, title etc.) can be set by calling 
 |clear|```dialog.clear = true```|Clears the widget screen, keeping only the screen_color background.|false|
 |insecure|```dialog.insecure = true```|Makes the password widget friendlier but less secure, by echoing asterisks for each character.|false|
 |ascii_lines|```dialog.ascii_lines = true```|Rather than draw graphics lines around boxes, draw ASCII "+" and "-" in the same place.  See also "--no-lines".|false|
-|...|...|...|...|
+|dialog_options|`dialog.dialog_options="any valid dialog option"` e.g. `dialog.dialog_options="--no-tags"` for checklist|Pass any valid dialog option. `man dialog` and look at the **OPTIONS** section. It is the caller's responsibily to specify correct options, no validation will be done|N/A|
 
 #### Widgets
 The following dialog widgets are supported:
