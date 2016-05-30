@@ -6,7 +6,7 @@ mrdialog is a pure
 [dialog](http://invisible-island.net/dialog/dialog.html) is
 a command line tool that can present questions, messages, forms using 
 dialog boxes from a shell script. If you compiled linux kernel and typed 'make
-menuconfig, configured Linux from command line with various configuration
+menuconfig', configured Linux from command line with various configuration
 managers, you have used 'dialog' like programs.
 
 However, it is painful to program dialog from shell scripts due to lack of 
