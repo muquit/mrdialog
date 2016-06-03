@@ -729,6 +729,7 @@ class MRDialog
       day.to_i.to_s + " " + month.to_i.to_s + " " + year.to_i.to_s + 
       " 2> " + tmp.path
     success = system(command)
+    @exit_code = $?.exitstatus
     if success
       date = Date::civil(*tmp.readline.split('/').collect {|i| i.to_i}.reverse)
       tmp.close!
@@ -773,7 +774,8 @@ class MRDialog
       tmp.path 
       log_debug "Command:\n#{command}"
     success = system(command)
-  selected_array = []
+    @exit_code = $?.exitstatus
+    selected_array = []
     if success
       selected_string = tmp.readline
       tmp.close!
@@ -814,27 +816,28 @@ class MRDialog
   #      value in the text-entry window and exit.
 
   def fselect(path, height=0, width=0)
-                tmp = Tempfile.new('tmp')
+    tmp = Tempfile.new('tmp')
 
-                command = option_string() + "--fselect \"" + path.to_s +
-                "\" " + height.to_i.to_s + " " + width.to_i.to_s + " "
+    command = option_string() + "--fselect \"" + path.to_s +
+              "\" " + height.to_i.to_s + " " + width.to_i.to_s + " "
 
-                command += "2> " + tmp.path
+    command += "2> " + tmp.path
 
-                success = system(command)
+    success = system(command)
+    @exit_code = $?.exitstatus
 
-                if success
-                        begin
-                                selected_string = tmp.readline
-                        rescue EOFError
-                                selected_string = ""
-                        end
-                        tmp.close!
-                        return selected_string
-                else
-                        tmp.close!
-                        return success
-                end
+    if success
+      begin
+        selected_string = tmp.readline
+      rescue EOFError
+        selected_string = ""
+      end
+      tmp.close!
+      return selected_string
+    else
+      tmp.close!
+      return success
+    end
   end
 
 
@@ -852,48 +855,49 @@ class MRDialog
     command = option_string() + "--infobox \"" + text.to_s +
                 "\" " + height.to_i.to_s + " " + width.to_i.to_s + " "
     success = system(command)
+    @exit_code = $?.exitstatus
     return success
   end
 
-        #      A  radiolist box is similar to a menu box.  The only difference
-        #      is that you can indicate which entry is currently selected,  by
-        #      setting its status to true.
+  #      A  radiolist box is similar to a menu box.  The only difference
+  #      is that you can indicate which entry is currently selected,  by
+  #      setting its status to true.
+  def radiolist(text, items, height=0, width=0, listheight=0)
 
-        def radiolist(text, items, height=0, width=0, listheight=0)
+    tmp = Tempfile.new('tmp')
 
-                tmp = Tempfile.new('tmp')
+    itemlist = String.new
 
-                itemlist = String.new
+    for item in items
+      if item[2]
+        item[2] = "on"
+      else
+        item[2] = "off"
+      end
+      itemlist += "\"" + item[0].to_s + "\" \"" + item[1].to_s +
+                  "\" " + item[2] + " "
 
-                for item in items
-                        if item[2]
-                                item[2] = "on"
-                        else
-                                item[2] = "off"
-                        end
-                        itemlist += "\"" + item[0].to_s + "\" \"" + item[1].to_s +
-                        "\" " + item[2] + " "
+      if @itemhelp
+        itemlist += "\"" + item[3].to_s + "\" "
+      end
+    end
 
-                        if @itemhelp
-                                itemlist += "\"" + item[3].to_s + "\" "
-                        end
-                end
+    command = option_string() + "--radiolist \"" + text.to_s +
+              "\" " + height.to_i.to_s + " " + width.to_i.to_s +
+              " " + listheight.to_i.to_s + " " + itemlist + "2> " +
+              tmp.path
+    log_debug("Command:\n#{command}")
+    success = system(command)
+    @exit_code = $?.exitstatus
 
-                command = option_string() + "--radiolist \"" + text.to_s +
-                        "\" " + height.to_i.to_s + " " + width.to_i.to_s +
-                        " " + listheight.to_i.to_s + " " + itemlist + "2> " +
-                        tmp.path
-                log_debug("Command:\n#{command}")
-                success = system(command)
-
-                if success
-                  selected_string = tmp.readline
-                   tmp.close!
-                        return selected_string
-                else
+    if success
+      selected_string = tmp.readline
       tmp.close!
-                        return success
-                end
+      return selected_string
+    else
+      tmp.close!
+      return success
+    end
 
   end
 
@@ -912,43 +916,44 @@ class MRDialog
         #      Returns a string containing the tag of the chosen menu entry.
 
   def menu(text="Text Goes Here", items=nil, height=0, width=0, listheight=0)
-                tmp = Tempfile.new('tmp')
+    tmp = Tempfile.new('tmp')
 
-                itemlist = String.new
+    itemlist = String.new
 
-                for item in items
-                        itemlist += "\"" + item[0].to_s + "\" \"" + item[1].to_s +  "\" "
+    for item in items
+      itemlist += "\"" + item[0].to_s + "\" \"" + item[1].to_s +  "\" "
 
-                        if @itemhelp
-                                itemlist += "\"" + item[2].to_s + "\" "
-                        end
-                end
+      if @itemhelp
+        itemlist += "\"" + item[2].to_s + "\" "
+      end
+    end
 
-                command = option_string() + "--menu \"" + text.to_s +
-                        "\" " + height.to_i.to_s + " " + width.to_i.to_s +
-                        " " + listheight.to_i.to_s + " " + itemlist + "2> " +
-                        tmp.path
+    command = option_string() + "--menu \"" + text.to_s +
+              "\" " + height.to_i.to_s + " " + width.to_i.to_s +
+              " " + listheight.to_i.to_s + " " + itemlist + "2> " +
+              tmp.path
 
-                log_debug("Command:\n#{command}")
-                success = system(command)
+    log_debug("Command:\n#{command}")
+    success = system(command)
+    @exit_code = $?.exitstatus
 
-                if success
-                        selected_string = tmp.readline
-                        tmp.close!
-                        return selected_string
-                else
-                        tmp.close!
-                        return success
-                end
+    if success
+      selected_string = tmp.readline
+      tmp.close!
+      return selected_string
+    else
+      tmp.close!
+      return success
+    end
     
   end
 
-        #      A message box is very similar to a yes/no box.  The  only  dif-
-        #      ference  between  a message box and a yes/no box is that a mes-
-        #      sage box has only a single OK button.  You can use this  dialog
-        #      box  to  display  any message you like.  After reading the mes-
-        #      sage, the user can press the ENTER key so that dialog will exit
-        #      and the calling shell script can continue its operation.
+  #      A message box is very similar to a yes/no box.  The  only  dif-
+  #      ference  between  a message box and a yes/no box is that a mes-
+  #      sage box has only a single OK button.  You can use this  dialog
+  #      box  to  display  any message you like.  After reading the mes-
+  #      sage, the user can press the ENTER key so that dialog will exit
+  #      and the calling shell script can continue its operation.
 
   def msgbox(text="Text Goes Here", height=0, width=0)
     command = option_string() + "--msgbox \"" + text.to_s +
@@ -956,44 +961,46 @@ class MRDialog
 
     log_debug "Command\n#{command}"
     success = system(command)
+    @exit_code = $?.exitstatus
     return success
   end
 
-        #      A password box is similar to an input box, except that the text
-        #      the user enters is not displayed.  This is useful when  prompt-
-        #      ing  for  passwords  or  other sensitive information.  Be aware
-        #      that if anything is passed in "init", it will be visible in the
-        #      system's  process  table  to casual snoopers.  Also, it is very
-        #      confusing to the user to provide them with a  default  password
-        #      they  cannot  see.   For  these reasons, using "init" is highly
-        #      discouraged.
+  #      A password box is similar to an input box, except that the text
+  #      the user enters is not displayed.  This is useful when  prompt-
+  #      ing  for  passwords  or  other sensitive information.  Be aware
+  #      that if anything is passed in "init", it will be visible in the
+  #      system's  process  table  to casual snoopers.  Also, it is very
+  #      confusing to the user to provide them with a  default  password
+  #      they  cannot  see.   For  these reasons, using "init" is highly
+  #      discouraged.
 
   def passwordbox(text="Please enter some text", height=0, width=0, init="")
-      tmp = Tempfile.new('tmp')
-      command = option_string() + "--passwordbox \"" + text.to_s +
-      "\" " + height.to_i.to_s + " " + width.to_i.to_s + " "
+    tmp = Tempfile.new('tmp')
+    command = option_string() + "--passwordbox \"" + text.to_s +
+              "\" " + height.to_i.to_s + " " + width.to_i.to_s + " "
 
-      unless init.empty?
-              command += init.to_s + " "
+    unless init.empty?
+      command += init.to_s + " "
+    end
+
+    command += "2> " + tmp.path
+    log_debug(command)
+    success = system(command)
+    @exit_code = $?.exitstatus
+
+    if success
+      begin
+        selected_string = tmp.readline
+      rescue EOFError
+        selected_string = ""
       end
-
-      command += "2> " + tmp.path
-      log_debug(command)
-      success = system(command)
-
-      if success
-              begin
-                      selected_string = tmp.readline
-              rescue EOFError
-                      selected_string = ""
-              end
-              tmp.close!
-              return selected_string
-      else
-              tmp.close!
-              return success
-      end
-        end
+      tmp.close!
+      return selected_string
+    else
+      tmp.close!
+      return success
+    end
+  end
 
   #     The textbox method handles three similar dialog functions, textbox,
   #     tailbox, and tailboxbg. They are activated by setting type to
@@ -1037,37 +1044,39 @@ class MRDialog
                 "\" " + height.to_i.to_s + " " + width.to_i.to_s + " "
     
     success = system(command)
+    @exit_code = $?.exitstatus
 
     return success
   end
 
-    #      A dialog is displayed which allows you to select  hour,  minute
-    #      and second.  If the values for hour, minute or second are miss-
-    #      ing or negative, the current date's  corresponding  values  are
-    #      used.   You  can  increment or decrement any of those using the
-    #      left-, up-, right- and down-arrows.  Use tab or backtab to move
-    #      between windows.
-    #
-    #      On  exit, a Time object is returned.
+  #      A dialog is displayed which allows you to select  hour,  minute
+  #      and second.  If the values for hour, minute or second are miss-
+  #      ing or negative, the current date's  corresponding  values  are
+  #      used.   You  can  increment or decrement any of those using the
+  #      left-, up-, right- and down-arrows.  Use tab or backtab to move
+  #      between windows.
+  #
+  #      On  exit, a Time object is returned.
 
 ##-    def timebox(file, type="text", height=0, width=0, time=Time.now)
-    def timebox(text, height=0, width=0, time=Time.now)
-               tmp = Tempfile.new('tmp')
+  def timebox(text, height=0, width=0, time=Time.now)
+              tmp = Tempfile.new('tmp')
 
-                command = option_string() + "--timebox \"" + text.to_s +
-                        "\" " + height.to_i.to_s + " " + width.to_i.to_s + " " +
-      time.hour.to_s + " " + time.min.to_s + " " + 
-      time.sec.to_s + " 2> " + tmp.path
-        log_debug("Command:\n#{command}")
-                success = system(command)
-                if success
-                        time = Time.parse(tmp.readline)
-                        tmp.close!
-                        return time
-                else
-                        tmp.close!
-                        return success
-                end
+    command = option_string() + "--timebox \"" + text.to_s +
+              "\" " + height.to_i.to_s + " " + width.to_i.to_s + " " +
+    time.hour.to_s + " " + time.min.to_s + " " + 
+    time.sec.to_s + " 2> " + tmp.path
+    log_debug("Command:\n#{command}")
+    success = system(command)
+    @exit_code = $?.exitstatus
+    if success
+      time = Time.parse(tmp.readline)
+      tmp.close!
+      return time
+    else
+      tmp.close!
+      return success
+    end
     
   end
 
@@ -1084,7 +1093,7 @@ class MRDialog
     tmp = Tempfile.new('tmp')
 
     command = option_string() + "--inputbox \"" + text.to_s +
-    "\" " + height.to_i.to_s + " " + width.to_i.to_s + " "
+              "\" " + height.to_i.to_s + " " + width.to_i.to_s + " "
 
     unless init.empty?
       command += init.to_s + " "
@@ -1093,32 +1102,33 @@ class MRDialog
     command += "2> " + tmp.path
 
     log_debug(command)
-                success = system(command)
+    success = system(command)
+    @exit_code = $?.exitstatus
 
-                if success
+    if success
       begin
-                          selected_string = tmp.readline
+        selected_string = tmp.readline
       rescue EOFError
         selected_string = ""
       end
       tmp.close!      
-                        return selected_string
-                else
-                        tmp.close!
-                        return success
-                end
+      return selected_string
+    else
+      tmp.close!
+      return success
+    end
   end
 
-    #      A yes/no dialog box of size height rows by width  columns  will
-    #      be displayed.  The string specified by text is displayed inside
-    #      the dialog box.  If this string is too long to fit in one line,
-    #      it  will be automatically divided into multiple lines at appro-
-    #      priate places.  The text string can also contain the sub-string
-    #      "\n"  or  newline  characters  '\n'  to  control  line breaking
-    #      explicitly.  This dialog box is  useful  for  asking  questions
-    #      that  require  the user to answer either yes or no.  The dialog
-    #      box has a Yes button and a No button, in  which  the  user  can
-    #      switch between by pressing the TAB key.
+  #      A yes/no dialog box of size height rows by width  columns  will
+  #      be displayed.  The string specified by text is displayed inside
+  #      the dialog box.  If this string is too long to fit in one line,
+  #      it  will be automatically divided into multiple lines at appro-
+  #      priate places.  The text string can also contain the sub-string
+  #      "\n"  or  newline  characters  '\n'  to  control  line breaking
+  #      explicitly.  This dialog box is  useful  for  asking  questions
+  #      that  require  the user to answer either yes or no.  The dialog
+  #      box has a Yes button and a No button, in  which  the  user  can
+  #      switch between by pressing the TAB key.
 
   # changing --inputbox to --yesno
   #  muquit@muquit.com Apr-01-2014 
@@ -1144,6 +1154,7 @@ class MRDialog
 
     log_debug("Command:\n#{command}")
     success = system(command)
+    @exit_code = $?.exitstatus
     return success
   end
 
