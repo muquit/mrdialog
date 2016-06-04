@@ -163,6 +163,11 @@ Please look at [treeview.rb](samples/treeview.rb) for an example.
 Please look at [yesno.rb](samples/yesno.rb) for an example.
 
 ### For Developers
+Install bundler first:
+
+    $ gem install bundler
+    $ bundle install
+
 - To build: ```$ rake build```
 
 Will create the gem inside the pkg directory
