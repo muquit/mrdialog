@@ -39,6 +39,9 @@ class MRDialog
     # All accessors are boolean unless otherwise noted.
     #
 
+	# Specify the rc file to use for dialog.  Default is $HOME/.dialogrc
+    attr_accessor :rc_file
+
     #
     # This gives you some control over the box dimensions when 
     # using auto sizing (specifying 0 for height and width). 
@@ -148,6 +151,12 @@ class MRDialog
 
   # Override the label used for "Cancel" buttons
   attr_accessor :cancel_label
+
+  # Override the label used for "Yes" buttons
+  attr_accessor :yes_label
+
+  # Override the label used for "No" buttons
+  attr_accessor :no_label
 
   # Add a "Help" button
   attr_accessor :help_button
@@ -1192,10 +1201,14 @@ class MRDialog
           end
         end
         raise "'dialog' executable not found in path" unless exe_loc
+
+		# if an rc file was specified, set DIALOGRC to that file
+		ENV["DIALOGRC"] = @rc_file if @rc_file
+
         ostring = exe_loc + " "
 
         if @aspect
-          ostring += "--aspect " + aspect + " "
+          ostring += "--aspect " + @aspect + " "
         end
         
         if @beep
@@ -1269,6 +1282,14 @@ class MRDialog
 
         if @cancel_label
             ostring += "--cancel-label #{@cancel_label} "
+        end
+
+        if @yes_label
+            ostring += "--yes-label #{@yes_label} "
+        end
+
+        if @no_label
+            ostring += "--no-label #{@no_label} "
         end
 
         if @extra_button
