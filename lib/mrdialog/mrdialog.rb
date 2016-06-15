@@ -146,6 +146,21 @@ class MRDialog
   # Override the label used for "OK" buttons
   attr_accessor :ok_label
 
+  # Override the label used for "Cancel" buttons
+  attr_accessor :cancel_label
+
+  # Add a "Help" button
+  attr_accessor :help_button
+
+  # Override the label used for the "Help" button
+  attr_accessor :help_label
+
+  # Add an "Extra" button
+  attr_accessor :extra_button
+
+  # Override the label used for the "Extra" button
+  attr_accessor :extra_label
+
   # clear screen
   attr_accessor :clear
 
@@ -1250,6 +1265,26 @@ class MRDialog
 
         if @ok_label
             ostring += "--ok-label #{@ok_label} "
+        end
+
+        if @cancel_label
+            ostring += "--cancel-label #{@cancel_label} "
+        end
+
+        if @extra_button
+            ostring += "--extra-button "
+        end
+
+        if @extra_label
+            ostring += "--extra-label #{@extra_label} "
+        end
+
+        if @help_button
+            ostring += "--help-button "
+        end
+
+        if @help_label
+            ostring += "--help-label #{@help_label} "
         end
 
         if @separator
