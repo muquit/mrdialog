@@ -1,3 +1,14 @@
+## 1.0.3
+* Added accessor `rc_file`. It specifies the DIALOGRC file to use.  Default is $HOME/.dialogrc
+* Added accessor `cancel_label`. It specifies the label to use for the 'Cancel' button. 
+* Added accessor `yes_label`. It specifies the label to use for the 'Yes' button.
+* Added accessor `no_label`. It specifies the label to use for the 'No' button.
+* Added accessor `help_button`. It specifies that a help button should be added to the dialog.
+* Added accessor `help_label`. It specifies the label to use for the 'Help' button.
+* Added accessor `extra_button`. It specifies that an extra button should be added to the dialog. 
+* Added accessor `extra_label`. It specifies the label to use for the 'Extra' button.
+* Fully implemented @exit_code. The @exit_code variable wasn't being set on all dialog styles.
+
 ## 1.0.2
 
 * Added accessor `notags`. It can be used with checklist for example. The default value is false.
