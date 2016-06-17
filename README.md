@@ -29,7 +29,7 @@ I did the following:
 If you have bug reports, questions, requests or  suggestions, please enter it in the [Issues](https://github.com/muquit/mrdialog/issues) with an appropriate label.
 
 ### Latest Version
-The latest version is 1.0.2. 
+The latest version is 1.0.3. 
 Please look at the [ChangeLog.md](ChangeLog.md) file for details. Please look at he [screenshots](screenshots/) to see how the widgets look like.
 
 ### Screenshots
@@ -81,6 +81,14 @@ The various properties of the dialog (shadow, title etc.) can be set by calling 
 |clear|```dialog.clear = true```|Clears the widget screen, keeping only the screen_color background.|false|
 |insecure|```dialog.insecure = true```|Makes the password widget friendlier but less secure, by echoing asterisks for each character.|false|
 |ascii_lines|```dialog.ascii_lines = true```|Rather than draw graphics lines around boxes, draw ASCII "+" and "-" in the same place.  See also "--no-lines".|false|
+|rc_file|```dialog.rc_file = "/path/to/rc/file"``` | Use the specified rc file.| "$HOME/.dialogrc"|
+|yes_label|```dialog.yes_label = "Sure"``` | Use the specified label on the "Yes" button.| "Yes"|
+|no_label|```dialog.no_label = "Nope"``` | Use the specified label on the "No" button.| "No"|
+|cancel_label|```dialog.cancel_label = "Forget"``` | Use the specified label on the "Cancel" button.| "Cancel"|
+|help_button|```dialog.help_button = true``` | Include a "Help" button on the dialog.| false|
+|help_label|```dialog.help_label = "What?"``` | Use the specified label on the "Help" button.| "Help"|
+|extra_button|```dialog.extra_button = true``` | Include an "Extra" button on the dialog.| false|
+|extra_label|```dialog.extra_label = "More"``` | Use the specified label on the "Extra" button.| "Extra"|
 |dialog_options|`dialog.dialog_options="any valid dialog option"` e.g. `dialog.dialog_options="--no-tags"` for checklist|Pass any valid dialog option. `man dialog` and look at the **OPTIONS** section. It is the caller's responsibily to specify correct options, no validation will be done|N/A|
 
 #### Widgets
