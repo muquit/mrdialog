@@ -171,6 +171,10 @@ Please look at [treeview.rb](samples/treeview.rb) for an example.
 Please look at [yesno.rb](samples/yesno.rb) for an example.
 
 ### For Developers
+Note: Pre-built mrdialog-1.0.3.gem is in the pkg directory
+
+If you need to build the gem yourself:
+
 Install bundler first:
 
     $ gem install bundler
@@ -180,11 +184,11 @@ Install bundler first:
 
 Will create the gem inside the pkg directory
 
-- To install the built gem: ```$ sudo gem install --local pkg/mrdialog-1.0.2.gem```
+- To install the built gem: ```$ sudo gem install --local pkg/mrdialog-1.0.3.gem```
 
 - To install using rake: ```$ sudo rake install```
 
-- To install the gem to a specific directory: ```$ GEM_HOME=/tmp gem install --local pkg/mrdialog-1.0.2.gem```
+- To install the gem to a specific directory: ```$ GEM_HOME=/tmp gem install --local pkg/mrdialog-1.0.3.gem```
 
 The gem will be installed in /tmp/gems directory
 
