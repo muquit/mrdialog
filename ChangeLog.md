@@ -29,7 +29,7 @@ This ia exactly same as `dialog.notags = true`
 
 ## 1.0.1
 
-* Jeweler support for making the gem.
+* Juwelier support for making the gem.
 
 Implemented methods for: 
 
