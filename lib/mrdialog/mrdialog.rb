@@ -442,7 +442,7 @@ class MRDialog
     @exit_code = $?.exitstatus
     log_debug "Exit code: #{exit_code}"
     tag = ''
-    if @exit_code == 0
+    if @exit_code != 1
       tag = tmp.read
     end
     tmp.close!
