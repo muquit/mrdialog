@@ -800,7 +800,7 @@ class MRDialog
     success = system(command)
     @exit_code = $?.exitstatus
     selected_array = []
-    if success
+    if @exit_code != 1
       selected_string = tmp.readline
       tmp.close!
       log_debug "Separator: #{@separator}"
@@ -850,7 +850,7 @@ class MRDialog
     success = system(command)
     @exit_code = $?.exitstatus
 
-    if success
+    if @exit_code != 1
       begin
         selected_string = tmp.readline
       rescue EOFError
