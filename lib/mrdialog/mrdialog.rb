@@ -525,7 +525,7 @@ class MRDialog
     system(cmd)
     @exit_code = $?.exitstatus
     log_debug "Exit code: #{exit_code}"
-    if @exit_code == 0
+    if @exit_code != 1
       lines = tmp.read
       log_debug "lines: #{lines} #{lines.class}"
       sep = Shellwords.escape(@separator)
@@ -693,7 +693,7 @@ class MRDialog
     @exit_code = $?.exitstatus
     log_debug "Exit code: #{exit_code}"
 
-    if @exit_code == 0
+    if @exit_code != 1
       lines = tmp.readlines
       lines.each_with_index do |val, idx|
           key = items[idx][0]
@@ -754,7 +754,7 @@ class MRDialog
       " 2> " + tmp.path
     success = system(command)
     @exit_code = $?.exitstatus
-    if success
+    if @exit_code != 1
       date = Date::civil(*tmp.readline.split('/').collect {|i| i.to_i}.reverse)
       tmp.close!
       return date
