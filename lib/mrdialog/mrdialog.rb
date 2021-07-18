@@ -445,8 +445,9 @@ class MRDialog
     if @exit_code != 1
       tag = tmp.read
     end
-    tmp.close!
     return tag
+  ensure
+    tmp.close!
   end
    
   #
@@ -535,8 +536,9 @@ class MRDialog
         selected_tags << tag if tag.to_s.length > 0
       end
     end
-    tmp.close!
     return selected_tags
+  ensure
+    tmp.close!
   end
 
   # A  pause  box displays a meter along the bottom of the box.  The
@@ -604,8 +606,9 @@ class MRDialog
     if @exit_code == 0
       result = tmp.read
     end
-    tmp.close!
     return result
+  ensure
+    tmp.close!
   end
 
   #
@@ -701,8 +704,9 @@ class MRDialog
       end
     end
 
-    tmp.close!
     return res_hash
+  ensure
+    tmp.close!
   end
 
   #
@@ -756,13 +760,12 @@ class MRDialog
     @exit_code = $?.exitstatus
     if @exit_code != 1
       date = Date::civil(*tmp.readline.split('/').collect {|i| i.to_i}.reverse)
-      tmp.close!
       return date
     else
-      tmp.close!
       return success
     end  
-    
+  ensure    
+    tmp.close!
   end
 
   # A  checklist  box  is similar to a menu box; there are multiple
@@ -802,7 +805,6 @@ class MRDialog
     selected_array = []
     if @exit_code != 1
       selected_string = tmp.readline
-      tmp.close!
       log_debug "Separator: #{@separator}"
 
       sep = Shellwords.escape(@separator)
@@ -813,10 +815,10 @@ class MRDialog
       end
       return selected_array
     else
-      tmp.close!
       return success
     end
-
+  ensure    
+    tmp.close!
   end
 
   #      The file-selection dialog displays a text-entry window in which
@@ -856,12 +858,12 @@ class MRDialog
       rescue EOFError
         selected_string = ""
       end
-      tmp.close!
       return selected_string
     else
-      tmp.close!
       return success
     end
+  ensure
+    tmp.close!
   end
 
 
@@ -914,15 +916,14 @@ class MRDialog
     success = system(command)
     @exit_code = $?.exitstatus
 
-    if success
+    if @exit_code != 1
       selected_string = tmp.readline
-      tmp.close!
       return selected_string
     else
-      tmp.close!
       return success
     end
-
+  ensure    
+    tmp.close!
   end
 
         #      As  its  name  suggests, a menu box is a dialog box that can be
@@ -961,15 +962,14 @@ class MRDialog
     success = system(command)
     @exit_code = $?.exitstatus
 
-    if success
+    if @exit_code != 1
       selected_string = tmp.readline
-      tmp.close!
       return selected_string
     else
-      tmp.close!
       return success
     end
-    
+  ensure    
+    tmp.close!
   end
 
   #      A message box is very similar to a yes/no box.  The  only  dif-
@@ -1012,18 +1012,18 @@ class MRDialog
     success = system(command)
     @exit_code = $?.exitstatus
 
-    if success
+    if @exit_code != 1
       begin
         selected_string = tmp.readline
       rescue EOFError
         selected_string = ""
       end
-      tmp.close!
       return selected_string
     else
-      tmp.close!
       return success
     end
+  ensure
+    tmp.close!
   end
 
   #     The textbox method handles three similar dialog functions, textbox,
@@ -1093,15 +1093,14 @@ class MRDialog
     log_debug("Command:\n#{command}")
     success = system(command)
     @exit_code = $?.exitstatus
-    if success
+    if @exit_code != 1
       time = Time.parse(tmp.readline)
-      tmp.close!
       return time
     else
-      tmp.close!
       return success
     end
-    
+  ensure    
+    tmp.close!
   end
 
   #      An input box is useful when you  want  to  ask  questions  that
@@ -1129,18 +1128,18 @@ class MRDialog
     success = system(command)
     @exit_code = $?.exitstatus
 
-    if success
+    if @exit_code != 1
       begin
         selected_string = tmp.readline
       rescue EOFError
         selected_string = ""
       end
-      tmp.close!      
       return selected_string
     else
-      tmp.close!
       return success
     end
+  ensure
+    tmp.close!
   end
 
   #      A yes/no dialog box of size height rows by width  columns  will

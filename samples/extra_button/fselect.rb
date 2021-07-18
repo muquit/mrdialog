@@ -13,11 +13,6 @@ begin
       end
     end
 
-    text = <<EOF
-Please set the time...
-EOF
-
-
     dialog = MRDialog.new
     dialog.clear = true
     dialog.title = "Please choose a file"
