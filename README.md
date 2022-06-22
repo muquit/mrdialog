@@ -219,6 +219,12 @@ Please look at [treeview.rb](samples/treeview.rb) for an example.
 
 Please look at [yesno.rb](samples/yesno.rb) for an example.
 
+### Dependencies
+
+Mrdialog does not have dependencies on any other gems. The gems in Gemfile are
+for development for building the gem.
+
+
 ### For Developers
 
 Note: Pre-built mrdialog-1.0.4.gem is in the pkg directory
