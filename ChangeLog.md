@@ -1,3 +1,17 @@
+## 1.0.4
+* Previously only the OK/Yes button read input from forms, menus and lists.
+If an extra button is used, it was treated the same as the Cancel/No 
+button, and no output from the form/menu/list was returned to the caller.
+
+This PR changes the various user input dialogs to treat the Extra button 
+the same way as the OK/Yes button, and to return the dialog's input to the 
+caller.
+
+Thanks to https://github.com/OtherJohnGray for pull request.
+
+(Jun-22-2022)
+
+
 ## 1.0.3
 * Added accessor `rc_file`. It specifies the DIALOGRC file to use.  Default is $HOME/.dialogrc
 * Added accessor `cancel_label`. It specifies the label to use for the 'Cancel' button. 
