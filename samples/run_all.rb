@@ -39,7 +39,7 @@ EOF
     pwd = Dir.pwd
     entries = Dir.entries(pwd)
     entries.each do |prog|
-      next if prog == '.' || prog == '..' || prog =~ /run_all.rb/
+      next if prog =~ /run_all.rb/ || prog !~ /\.rb$/
       cmd = ""
       cmd << "ruby ./#{prog}"
       system(cmd)
