@@ -188,6 +188,13 @@ class MRDialog
   # For  widgets  holding a scrollable set of data, draw a scrollbar
   # on its right-margin.  This does not respond to the mouse.
   attr_accessor :scrollbar
+
+  # Normally  dialog  converts  tabs  to spaces and reduces multiple 
+  # spaces to a single space for text which is displayed 
+  # # in a message boxes, etc.  Use this option to disable that feature.  
+  # Note that dialog will  still  wrap  text,  subject  to  the "--cr-wrap" 
+  # and "--trim" options. #7
+  attr_accessor :no_collapse
   # -- muquit@muquit.com mod ends---
 
   # Returns a new RDialog Object
@@ -1317,6 +1324,11 @@ class MRDialog
 
         if @nocancel
           ostring += "--nocancel "
+        end
+
+        # #7
+        if @no_collapse
+          ostring += "--no-collapse "
         end
 
         return ostring
