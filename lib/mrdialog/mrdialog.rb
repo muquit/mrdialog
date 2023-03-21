@@ -283,9 +283,9 @@ class MRDialog
         cmd << " "
         cmd << "--gauge"
         cmd << " "
-        cmd << '"'
+        cmd << "'"
         cmd << text
-        cmd << '"'
+        cmd << "'"
         cmd << " "
         cmd << height.to_s
         cmd << " "
@@ -316,9 +316,9 @@ class MRDialog
     cmd << "--progressbox"
     cmd << " "
     if description.length > 0
-        cmd << '"'
+        cmd << "'"
         cmd << description
-        cmd << '"'
+        cmd << "'"
     end
     cmd << " "
     cmd << height.to_s
@@ -337,9 +337,9 @@ class MRDialog
     cmd << "--programbox"
     cmd << " "
     if description.length > 0
-        cmd << '"'
+        cmd << "'"
         cmd << description
-        cmd << '"'
+        cmd << "'"
     end
     cmd << " "
     cmd << height.to_s
@@ -371,14 +371,14 @@ class MRDialog
     cmd << "--prgbox"
     cmd << " "
     if text.length > 0
-      cmd << '"'
+      cmd << "'"
       cmd << text
-      cmd << '"'
+      cmd << "'"
     end
     cmd << " "
-    cmd << '"'
+    cmd << "'"
     cmd << command
-    cmd << '"'
+    cmd << "'"
     cmd << " "
     cmd << height.to_s
     cmd << " "
@@ -401,22 +401,22 @@ class MRDialog
     tmp = Tempfile.new('dialog') 
     itemlist = ''
     items.each do |item|
-      itemlist << '"' 
+      itemlist << "'" 
       itemlist << item[0].to_s
-      itemlist << '"'
+      itemlist << "'"
       itemlist << " "
-      itemlist << '"'
+      itemlist << "'"
       itemlist << item[1].to_s
-      itemlist << '"'
+      itemlist << "'"
       itemlist << " "
-      itemlist << '"'
+      itemlist << "'"
       if item[2]
         item[2] = "on"
       else
         item[2] = "off"
       end
       itemlist << item[2]
-      itemlist << '"'
+      itemlist << "'"
       itemlist << " "
       itemlist << item[3].to_s
       itemlist << " "
@@ -429,10 +429,10 @@ class MRDialog
     cmd << " "
     cmd << "--treeview"
     cmd << " "
-    cmd << '"'
+    cmd << "'"
     cmd << " "
     cmd << text
-    cmd << '"'
+    cmd << "'"
     cmd << " "
     cmd << height.to_s
     cmd << " "
@@ -478,22 +478,22 @@ class MRDialog
     itemlist = ''
 
     items.each do |item|
-      itemlist << '"' 
+      itemlist << "'" 
       itemlist << item[0].to_s
-      itemlist << '"'
+      itemlist << "'"
       itemlist << " "
-      itemlist << '"'
+      itemlist << "'"
       itemlist << item[1].to_s
-      itemlist << '"'
+      itemlist << "'"
       itemlist << " "
-      itemlist << '"'
+      itemlist << "'"
       if item[2]
         item[2] = "on"
       else
         item[2] = "off"
       end
       itemlist << item[2]
-      itemlist << '"'
+      itemlist << "'"
       itemlist << " "
     end
     itemlist << "2>"
@@ -507,17 +507,17 @@ class MRDialog
       cmd << " "
       cmd << "--separator"
       cmd << " "
-      cmd << '"'
+      cmd << "'"
       cmd << @separator
-      cmd << '"'
+      cmd << "'"
     end
     cmd << " "
     cmd << "--buildlist"
     cmd << " "
-    cmd << '"'
+    cmd << "'"
     cmd << " "
     cmd << text
-    cmd << '"'
+    cmd << "'"
     cmd << " "
     cmd << height.to_s
     cmd << " "
@@ -559,9 +559,9 @@ class MRDialog
     cmd << " "
     cmd << "--pause"
     cmd << " "
-    cmd << '"'
+    cmd << "'"
     cmd << text
-    cmd << '"'
+    cmd << "'"
     cmd << " "
     cmd << height.to_s
     cmd << " "
@@ -593,9 +593,9 @@ class MRDialog
     cmd << " "
     cmd << "--editbox"
     cmd << " "
-    cmd << '"'
+    cmd << "'"
     cmd << filepath
-    cmd << '"'
+    cmd << "'"
     cmd << " "
     cmd << height.to_s
     cmd << " "
@@ -643,17 +643,17 @@ class MRDialog
         mixed_form = true
     end
     items.each do |item|
-      itemlist << '"'
+      itemlist << "'"
       itemlist << item[0].to_s
-      itemlist << '"'
+      itemlist << "'"
       itemlist << " "
       itemlist << item[1].to_s
       itemlist << " "
       itemlist << item[2].to_s
       itemlist << " "
-      itemlist << '"'
+      itemlist << "'"
       itemlist << item[3].to_s
-      itemlist << '"'
+      itemlist << "'"
       itemlist << " "
       itemlist << item[4].to_s
       itemlist << " "
@@ -685,9 +685,9 @@ class MRDialog
       end
     end
     cmd << " "
-    cmd << '"'
+    cmd << "'"
     cmd << text
-    cmd << '"'
+    cmd << "'"
     cmd << " "
     cmd << height.to_s
     cmd << " "
@@ -1169,13 +1169,13 @@ class MRDialog
     command = ""
     command << option_string();
     command << " "
-    command << '"'
+    command << "'"
     command << "--yesno"
-    command << '"'
+    command << "'"
     command << " "
-    command << '"'
+    command << "'"
     command << text
-    command << '"'
+    command << "'"
     command << " "
     command << height.to_s
     command << " "

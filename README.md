@@ -227,7 +227,7 @@ for development for building the gem.
 
 ### For Developers
 
-Note: Pre-built mrdialog-1.0.4.gem is in the pkg directory
+Note: Pre-built mrdialog-1.0.5.gem is in the pkg directory
 
 If you need to build the gem yourself:
 
@@ -240,11 +240,11 @@ Install bundler first:
 
 Will create the gem inside the pkg directory
 
-- To install the built gem: `$ sudo gem install --local pkg/mrdialog-1.0.4.gem`
+- To install the built gem: `$ sudo gem install --local pkg/mrdialog-1.0.5.gem`
 
 - To install using rake: `$ sudo rake install`
 
-- To install the gem to a specific directory: `$ GEM_HOME=/tmp gem install --local pkg/mrdialog-1.0.4.gem`
+- To install the gem to a specific directory: `$ GEM_HOME=/tmp gem install --local pkg/mrdialog-1.0.5.gem`
 
 The gem will be installed in /tmp/gems directory
 

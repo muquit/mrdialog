@@ -1,3 +1,9 @@
+## 1.0.5
+* Wrap values inside single quotes indead of double quotes. If saved values
+are reloaded in a form, special shell characters could get expanded and
+corrupt data.  Please update to v1.0.5.
+(Mar-15-2023)
+
 ## 1.0.4
 * Previously only the OK/Yes button read input from forms, menus and lists.
 If an extra button is used, it was treated the same as the Cancel/No 
