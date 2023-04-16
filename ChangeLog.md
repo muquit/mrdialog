@@ -1,3 +1,6 @@
+## 1.0.6
+* Ruby 3.2.0 removed File.exists? method. Change to File.exist?
+
 ## 1.0.5
 * Wrap values inside single quotes indead of double quotes. If saved values
 are reloaded in a form, special shell characters could get expanded and
