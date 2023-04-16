@@ -1199,7 +1199,7 @@ class MRDialog
           ostring = exe_loc
         else
           exe_loc = @path_to_dialog
-          if !File.exists?(exe_loc)
+          if !File.exist?(exe_loc)
             raise "Specified path of dialog '#{exe_loc}' does not exist"
           end
           if !File.executable?(exe_loc)
