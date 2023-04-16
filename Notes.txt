@@ -1,0 +1,20 @@
+Notes for myself
+
+* Update VERSION if needed
+
+* If anything changed, build the gem by running
+  rake build
+  cd pkg
+
+* remove old version
+* git add <new version>
+* update md5.txt
+* commit
+* push
+
+* To publish to rubygems.org
+    gem push mrdialog-1.0.6.gem
+    Pushing gem to https://rubygems.org...
+    You have enabled multi-factor authentication. Please enter OTP code.
+    Code:   XXXXXX
+    Successfully registered gem: mrdialog (1.0.6)
