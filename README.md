@@ -3,6 +3,15 @@
 The latest version is 1.0.6.
 Please look at the [ChangeLog.md](ChangeLog.md) file for details. Please look at he [screenshots](screenshots/) to see how the widgets look like.
 
+### To install
+
+`# gem install mrdialog`
+or
+`$ sudo gem install mrdialog`
+
+### To uninstall
+
+`# gem uninstall mrdialog` or `$ sudo gem uninstall mrdialog`
 
 ### MRDialog
 
@@ -45,15 +54,6 @@ I tested with `dialog Version: 1.2-20130928`
 
 dialog HOME: http://invisible-island.net/dialog/dialog.html.
 
-### To install
-
-`# gem install mrdialog`
-or
-`$ sudo gem install mrdialog`
-
-### To uninstall
-
-`# gem uninstall mrdialog` or `$ sudo gem uninstall mrdialog`
 
 ### Run the sample apps
 
