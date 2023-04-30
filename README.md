@@ -1,3 +1,9 @@
+### Latest Version
+
+The latest version is 1.0.6.
+Please look at the [ChangeLog.md](ChangeLog.md) file for details. Please look at he [screenshots](screenshots/) to see how the widgets look like.
+
+
 ### MRDialog
 
 mrdialog is a pure
@@ -26,11 +32,6 @@ I did the following:
 - Implemented the examples for all the widgets.
 
 If you have bug reports, questions, requests or suggestions, please enter it in the [Issues](https://github.com/muquit/mrdialog/issues) with an appropriate label.
-
-### Latest Version
-
-The latest version is 1.0.6.
-Please look at the [ChangeLog.md](ChangeLog.md) file for details. Please look at he [screenshots](screenshots/) to see how the widgets look like.
 
 ### Screenshots
 
