@@ -3,9 +3,13 @@ Notes for myself
 * Update VERSION if needed
 
 * If anything changed, build the gem by running
+  rake clean
+  rake gemspec
   rake build
   cd pkg
 
+* To look at the content of the local gem, run 
+    gem unpack file.gem
 * remove old version
 * git add <new version>
 * update md5.txt
@@ -17,4 +21,4 @@ Notes for myself
     Pushing gem to https://rubygems.org...
     You have enabled multi-factor authentication. Please enter OTP code.
     Code:   XXXXXX
-    Successfully registered gem: mrdialog (1.0.6)
+    Successfully registered gem: mrdialog (1.0.7)

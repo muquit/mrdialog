@@ -32,25 +32,25 @@ EOF
     checklist_data = Struct.new(:tag, :item, :select)
 
     data = checklist_data.new
-    data.tag = "Apple"
+    data.tag = "Apple One"
     data.item = "It's an applie"
     data.select = false
     items.push(data.to_a)
 
     data = checklist_data.new
-    data.tag = "Dog"
+    data.tag = "Dog Two"
     data.item = "No it's not my dog"
     data.select = true
     items.push(data.to_a)
 
     data = checklist_data.new
-    data.tag = "Orange"
+    data.tag = "Orange Three"
     data.item = "Yeah! it is juicy"
     data.select = false
     items.push(data.to_a)
 
     data = checklist_data.new
-    data.tag = "Chicken"
+    data.tag = "Chicken Four"
     data.item = "Normally not a pet"
     data.select = true
     items.push(data.to_a)
@@ -60,6 +60,7 @@ EOF
 #    dialog.dialog_options = "--no-tags"
     dialog.clear = true
     dialog.title = "CHECKLIST"
+    dialog.dialog_options = "--separator '|' --single-quoted"
     dialog.logger = Logger.new(ENV["HOME"] + "/dialog_" + ME + ".log")
 
     selected_items = dialog.checklist(text, items)
@@ -67,8 +68,18 @@ EOF
     puts selected_items.class
     puts "Exit code: #{exit_code}"
     if selected_items
-      puts "Selected Items:"
-      selected_items.each do |item|
+      # selected_items is an array with 1 element the array looks something
+      # like '|'Dog Two'|'Chicken Four''
+      # convert the output to an array with selected items
+      x = selected_items.join() # a string
+      a = []
+      aa = x.split('|')
+      aa.each do |e|
+        e = e.gsub(/\'/,'')
+        next if e.length == 0
+        a << e
+    end  
+      a.each do |item|
         puts "  '#{item}'"
       end
     end

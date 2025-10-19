@@ -1,21 +1,43 @@
-### Latest Version
+## Table Of Contents
+  - [Introduction](#introduction)
+  - [Latest Version (1.0.7 - Oct-19-2025)](#latest-version-107-oct-19-2025)
+  - [To install](#to-install)
+  - [To uninstall](#to-uninstall)
+  - [Screenshots](#screenshots)
+  - [Requirements](#requirements)
+  - [Run the sample apps](#run-the-sample-apps)
+  - [How to use the API](#how-to-use-the-api)
+  - [Properties](#properties)
+  - [Widgets](#widgets)
+    - [buildlist](#buildlist)
+    - [calendar](#calendar)
+    - [checklist](#checklist)
+    - [editbox](#editbox)
+    - [form](#form)
+    - [fselect](#fselect)
+    - [gauge](#gauge)
+    - [infobox](#infobox)
+    - [textbox](#textbox)
+    - [inputbox](#inputbox)
+    - [menu](#menu)
+    - [msgbox](#msgbox)
+    - [passwordbox](#passwordbox)
+    - [passwordform](#passwordform)
+    - [pause](#pause)
+    - [prgbox](#prgbox)
+    - [progressbox](#progressbox)
+    - [programbox](#programbox)
+    - [radiolist](#radiolist)
+    - [timebox](#timebox)
+    - [treeview](#treeview)
+    - [yesno](#yesno)
+  - [Dependencies](#dependencies)
+  - [For Developers](#for-developers)
+  - [License](#license)
 
-The latest version is 1.0.6.
-Please look at the [ChangeLog.md](ChangeLog.md) file for details. Please look at he [screenshots](screenshots/) to see how the widgets look like.
+## Introduction
 
-### To install
-
-`# gem install mrdialog`
-or
-`$ sudo gem install mrdialog`
-
-### To uninstall
-
-`# gem uninstall mrdialog` or `$ sudo gem uninstall mrdialog`
-
-### MRDialog
-
-mrdialog is a pure
+`mrdialog` is a pure
 [ruby](https://www.ruby-lang.org/) library for the ncurses
 [dialog](http://invisible-island.net/dialog/dialog.html) program.
 [dialog](http://invisible-island.net/dialog/dialog.html) is
@@ -42,20 +64,47 @@ I did the following:
 
 If you have bug reports, questions, requests or suggestions, please enter it in the [Issues](https://github.com/muquit/mrdialog/issues) with an appropriate label.
 
-### Screenshots
+## Latest Version (1.0.7 - Oct-19-2025)
+
+The latest version is 1.0.7
+
+**Important fix in 1.0.7**: Fixed a parsing bug where dialog commands 
+would fail if any text contained apostrophes (single quotes). All special 
+characters in user input are now properly handled.
+
+Please look at the [ChangeLog.md](ChangeLog.md) file for details. Please look at the [screenshots](screenshots/) to see how the widgets look like.
+
+## To install
+
+```bash
+gem install mrdialog
+or
+sudo gem install mrdialog
+```
+
+## To uninstall
+
+```bash
+gem uninstall mrdialog
+or
+sudo gem uninstall mrdialog
+```
+
+
+## Screenshots
 
 Please look at the [screenshots](screenshots/) directory. There are individual screenshots for each of the widgets. Also the animated GIF file [all.gif](screenshots/all.gif) contains screenshot of all the widgets.
 
-### Requirements
+## Requirements
 
 The [dialog](http://invisible-island.net/dialog/dialog.html) program must be installed. Note: the dialog program that is available in ubuntu is little old. Check the dialog version by typing `dialog --version`
 
-I tested with `dialog Version: 1.2-20130928`
+I tested with `Version: 1.3-20250116`
 
 dialog HOME: http://invisible-island.net/dialog/dialog.html.
 
 
-### Run the sample apps
+## Run the sample apps
 
 Find out where the mrdialog gem is installed. Example:
 
@@ -71,14 +120,14 @@ Example:
 Look at samples/extra_button/ on how to use an extra button on various input
 dialogs.
 
-### How to use the API
+## How to use the API
 
 For now, please look at the apps in [samples](samples/) directory to see how the API works.
 
     require 'mrdialog'
     dialog = MRDialog.new
 
-#### Properties
+## Properties
 
 The various properties of the dialog (shadow, title etc.) can be set by calling the appropriate setters. The supported properties are shown below:
 
@@ -100,7 +149,7 @@ The various properties of the dialog (shadow, title etc.) can be set by calling 
 | extra_label    | `dialog.extra_label = "More"`                                                                            | Use the specified label on the "Extra" button.                                                                                                                         | "Extra"           |
 | dialog_options | `dialog.dialog_options="any valid dialog option"` e.g. `dialog.dialog_options="--no-tags"` for checklist | Pass any valid dialog option. `man dialog` and look at the **OPTIONS** section. It is the caller's responsibility to specify correct options, no validation will be done | N/A               |
 
-#### Widgets
+## Widgets
 
 The following dialog widgets are supported:
 
@@ -112,6 +161,7 @@ The following dialog widgets are supported:
 - fselect
 - gauge
 - infobox
+- textbox
 - inputbox
 - menu
 - msgbox
@@ -126,129 +176,154 @@ The following dialog widgets are supported:
 - treeview
 - yesno
 
-##### buildlist
+### buildlist
 
 A buildlist dialog displays two lists, side-by-side. The list on the left shows unselected items. The list on the right shows selected items. As items are selected or unselected, they move between the lists. The SPACE bar is used to
 select or unselect an item.
 
-Use a carriage return or the "OK" button to accept the current value in the selected-window and exit. The results are written using the order displayed in the selected-window. The caller is responsible to create the items properly. Please look at [buildlist.rb](samples/buildlist.rb) for an example.
+Use a carriage return or the "OK" button to accept the current value in the selected-window and exit. The results are written using the order displayed in the selected-window. The caller is responsible to create the items properly.
 
 returns an array of selected tags
+```bash
+result_array = dialog.buildlist(text="Text Goes Here", items, height=0, width=0, listheight=0)
+```
+- Please look at [buildlist.rb](samples/buildlist.rb) for an example.
 
-    result_array = dialog.buildlist(text="Text Goes Here", items, height=0, width=0, listheight=0)
+### calendar
 
-#### calendar
+- Please look at [calendar.rb](samples/calendar.rb) for an example.
 
-Please look at [calendar.rb](samples/calendar.rb) for an example.
+### checklist
 
-#### checklist
+- Please look at [checklist.rb](samples/checklist.rb) for an example.
 
-Please look at [checklist.rb](samples/checklist.rb) for an example.
+### editbox
 
-#### editbox
+- Please look at [editbox.rb](samples/editbox.rb) for an example.
 
-Please look at [editbox.rb](samples/editbox.rb) for an example.
+### form
 
-#### form
-
-Please look at
+- Please look at
 [form1.rb](samples/form1.rb), [form2.rb](samples/form2.rb), [form3.rb](samples/form3.rb)
 for examples.
 
-#### fselect
+### fselect
 
-Please look at [fselect.rb](samples/fselect.rb) for an example.
+- Please look at [fselect.rb](samples/fselect.rb) for an example.
 
-#### gauge
+### gauge
 
-Please look at [gauge.rb](samples/gauge.rb) for an example.
+- Please look at [gauge.rb](samples/gauge.rb) for an example.
 
-#### infobox
+### infobox
 
-Please look at [infobox.rb](samples/infobox.rb) for an example.
+- Please look at [infobox.rb](samples/infobox.rb) for an example.
 
-#### inputbox
+### textbox
+- Please look at [textbox.rb](samples/textbox.rb) for an example.
 
-Please look at [inputbox.rb](samples/inputbox.rb) for an example.
+### inputbox
 
-#### menu
+- Please look at [inputbox.rb](samples/inputbox.rb) for an example.
 
-Please look at [menubox.rb](samples/menubox.rb) for an example.
+### menu
 
-#### msgbox
+- Please look at [menubox.rb](samples/menubox.rb) for an example.
 
-Please look at [msgbox.rb](samples/msgbox.rb) for an example.
+### msgbox
 
-#### passwordbox
+- Please look at [msgbox.rb](samples/msgbox.rb) for an example.
 
-Please look at [password.rb](samples/password.rb), [password2.rb](samples/password2.rb)
+### passwordbox
+
+- Please look at [password.rb](samples/password.rb), [password2.rb](samples/password2.rb)
 for examples.
 
-#### passwordform
+### passwordform
 
-Please look at [passwordform.rb](samples/passwordform.rb) for an example.
+- Please look at [passwordform.rb](samples/passwordform.rb) for an example.
 
-#### pause
+### pause
 
-Please look at [pause.rb](samples/pause.rb) for an example.
+- Please look at [pause.rb](samples/pause.rb) for an example.
 
-#### prgbox
+### prgbox
 
-Please look at [prgbox.rb](samples/prgbox.rb) for an example.
+- Please look at [prgbox.rb](samples/prgbox.rb) for an example.
 
-#### progressbox
+### progressbox
 
-Please look at [progressbox.rb](samples/progressbox.rb) for an example.
+- Please look at [progressbox.rb](samples/progressbox.rb) for an example.
 
-#### programbox
+### programbox
 
-Please look at [programbox.rb](samples/programbox.rb) for an example.
+- Please look at [programbox.rb](samples/programbox.rb) for an example.
 
-#### radiolist
+### radiolist
 
-Please look at [radiolist.rb](samples/radiolist.rb) for an example.
+- Please look at [radiolist.rb](samples/radiolist.rb) for an example.
 
-#### timebox
+### timebox
 
-Please look at [timebox.rb](samples/timebox.rb) for an example.
+- Please look at [timebox.rb](samples/timebox.rb) for an example.
 
-#### treeview
+### treeview
 
-Please look at [treeview.rb](samples/treeview.rb) for an example.
+- Please look at [treeview.rb](samples/treeview.rb) for an example.
 
-#### yesno
+### yesno
 
-Please look at [yesno.rb](samples/yesno.rb) for an example.
+- Please look at [yesno.rb](samples/yesno.rb) for an example.
 
-### Dependencies
+## Dependencies
 
 Mrdialog does not have dependencies on any other gems. The gems in Gemfile are
 for development for building the gem.
 
 
-### For Developers
+## For Developers
 
-Note: Pre-built mrdialog-1.0.5.gem is in the pkg directory
+Note: Pre-built `mrdialog-1.0.7.gem` is in the pkg directory
 
 If you need to build the gem yourself:
 
 Install bundler first:
+```bash
+gem install bundler
+bundle install
+```
 
-    $ gem install bundler
-    $ bundle install
-
-- To build: `$ rake build`
+- To build: 
+```bash
+  rake clean
+  rake gemspec
+  rake build
+```
 
 Will create the gem inside the pkg directory
 
-- To install the built gem: `$ sudo gem install --local pkg/mrdialog-1.0.5.gem`
+- To install the built gem: 
+```bash
+sudo gem install --local pkg/mrdialog-1.0.7.gem
+```
 
-- To install using rake: `$ sudo rake install`
+- To install using rake: 
+```bash
+sudo rake install
+```
 
-- To install the gem to a specific directory: `$ GEM_HOME=/tmp gem install --local pkg/mrdialog-1.0.5.gem`
+- To install the gem to a specific directory: 
+```bash
+    GEM_HOME=/tmp gem install --local pkg/mrdialog-1.0.7.gem`
+```
 
-The gem will be installed in /tmp/gems directory
+The gem will be installed in `/tmp/gems` directory
 
-### Copyright
+Please see the [Makefile](Makefile) for build and release commands
+
+## License
 
 License is MIT. Please look at the [LICENSE.txt](LICENSE.txt) file for details.
+
+---
+<sub>TOC is created by https://github.com/muquit/markdown-toc-go on Oct-18-2025</sub>

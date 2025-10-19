@@ -1,3 +1,20 @@
+## 1.0.7
+* If any text had single quote in it e.g. "don't", "It's", the dialog 
+command was failing with syntax error. In previsous version, the dialog 
+command was wrapped with single quotes but now shell escape the values. 
+Note: this is a parsing bug fix, not a security issue. Thanks to Carl for 
+finding this bug.
+
+(Oct-18-2025)
+
+* If no item was selected in a checklist, an EOF exception was thrown. Now
+return false in that case.
+
+* Update checklist example to get selected item in an array. Before the items
+were in an array with 1 element.
+
+(Jan-23-2024)
+
 ## 1.0.6
 * Ruby 3.2.0 removed File.exists? method. Change to File.exist?
 

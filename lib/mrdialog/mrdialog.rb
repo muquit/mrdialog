@@ -363,7 +363,9 @@ class MRDialog
   # If three parameters are given, it displays the  text  under  the
   # title,  delineated  from the scrolling file's contents.  If only
   # two parameters are given, this text is omitted.
-  #
+  # Update: 
+  #   insteaf of putting command inside single quote, use shell escape,
+  #   otherwise if value has single quote parsing fails. Oct-18-2025 
   def prgbox(command, height=0, width=0, text='')
     cmd = ""
     cmd << option_string()
@@ -371,14 +373,10 @@ class MRDialog
     cmd << "--prgbox"
     cmd << " "
     if text.length > 0
-      cmd << "'"
-      cmd << text
-      cmd << "'"
+      cmd << Shellwords.escape(text)  # Escape the text parameter
+      cmd << " "
     end
-    cmd << " "
-    cmd << "'"
-    cmd << command
-    cmd << "'"
+    cmd << Shellwords.escape(command)  # Escape the command parameter
     cmd << " "
     cmd << height.to_s
     cmd << " "
@@ -397,28 +395,25 @@ class MRDialog
   # 
   # On exit, the tag of the selected item  is  written  to  dialog's
   # output.
+  # Update: 
+  #   insteaf of putting command inside single quote, use shell escape,
+  #   otherwise if value has single quote parsing fails. Oct-18-2025 
   def treeview(text="Text Goes Here", items=nil, height=0, width=0, listheight=0)
     tmp = Tempfile.new('dialog') 
     itemlist = ''
     items.each do |item|
-      itemlist << "'" 
-      itemlist << item[0].to_s
-      itemlist << "'"
+      itemlist << Shellwords.escape(item[0].to_s)  # tag
       itemlist << " "
-      itemlist << "'"
-      itemlist << item[1].to_s
-      itemlist << "'"
+      itemlist << Shellwords.escape(item[1].to_s)  # text/description
       itemlist << " "
-      itemlist << "'"
       if item[2]
         item[2] = "on"
       else
         item[2] = "off"
       end
-      itemlist << item[2]
-      itemlist << "'"
+      itemlist << item[2]  # on/off status (no escaping needed)
       itemlist << " "
-      itemlist << item[3].to_s
+      itemlist << item[3].to_s  # depth (numeric, no escaping needed)
       itemlist << " "
     end
     itemlist << "2>"
@@ -429,10 +424,7 @@ class MRDialog
     cmd << " "
     cmd << "--treeview"
     cmd << " "
-    cmd << "'"
-    cmd << " "
-    cmd << text
-    cmd << "'"
+    cmd << Shellwords.escape(text)  # escape the main text
     cmd << " "
     cmd << height.to_s
     cmd << " "
@@ -456,7 +448,6 @@ class MRDialog
   ensure
     tmp.close!
   end
-   
   #
   # A buildlist  dialog displays two lists, side-by-side.  The list
   # on the left shows unselected items. The list on the right shows
@@ -469,7 +460,9 @@ class MRDialog
   #
   # The caller is responsile to create the items properly. Please
   # look at samples/buildlist.rb for an example.
-  #
+  # Update: 
+  #   insteaf of putting command inside single quote, use shell escape,
+  #   otherwise if value has single quote parsing fails. Oct-18-2025 
   # return an array of selected tags
   # Author:: muquit@muquit.com 
   def buildlist(text="Text Goes Here", items = nil, height=0, width=0, listheight=0)
@@ -478,46 +471,34 @@ class MRDialog
     itemlist = ''
 
     items.each do |item|
-      itemlist << "'" 
-      itemlist << item[0].to_s
-      itemlist << "'"
+      itemlist << Shellwords.escape(item[0].to_s)  # tag
       itemlist << " "
-      itemlist << "'"
-      itemlist << item[1].to_s
-      itemlist << "'"
+      itemlist << Shellwords.escape(item[1].to_s)  # description
       itemlist << " "
-      itemlist << "'"
       if item[2]
         item[2] = "on"
       else
         item[2] = "off"
       end
-      itemlist << item[2]
-      itemlist << "'"
+      itemlist << item[2]  # on/off status (no escaping needed)
       itemlist << " "
     end
     itemlist << "2>"
     itemlist << tmp.path
 
     cmd = ""
-
     cmd << option_string()
     if !@separator
       @separator = "|"
       cmd << " "
       cmd << "--separator"
       cmd << " "
-      cmd << "'"
-      cmd << @separator
-      cmd << "'"
+      cmd << Shellwords.escape(@separator)  # escape separator
     end
     cmd << " "
     cmd << "--buildlist"
     cmd << " "
-    cmd << "'"
-    cmd << " "
-    cmd << text
-    cmd << "'"
+    cmd << Shellwords.escape(text)  # escape the main text
     cmd << " "
     cmd << height.to_s
     cmd << " "
@@ -547,21 +528,21 @@ class MRDialog
   ensure
     tmp.close!
   end
-
   # A  pause  box displays a meter along the bottom of the box.  The
   # meter indicates how many seconds remain until  the  end  of  the
   # pause. The  pause  exits  when  timeout is reached or the user
   # presses the OK button (status OK) or the user presses the CANCEL
   # button or Esc key.
+  # Update: 
+  #   insteaf of putting command inside single quote, use shell escape,
+  #   otherwise if value has single quote parsing fails. Oct-18-2025 
   def pause(text="Text Goes Here", height=0, width=0, secs=10)
     cmd = ""
     cmd << option_string()
     cmd << " "
     cmd << "--pause"
     cmd << " "
-    cmd << "'"
-    cmd << text
-    cmd << "'"
+    cmd << Shellwords.escape(text)  # escape the text parameter
     cmd << " "
     cmd << height.to_s
     cmd << " "
@@ -585,6 +566,9 @@ class MRDialog
   # 
   # On exit, the contents of the edit window are written to dialog's
   # output.
+  # Update: 
+  #   insteaf of putting command inside single quote, use shell escape,
+  #   otherwise if value has single quote parsing fails. Oct-18-2025 
   def editbox(filepath, height=0, width=0)
     tmp = Tempfile.new('dialog') 
 
@@ -593,9 +577,7 @@ class MRDialog
     cmd << " "
     cmd << "--editbox"
     cmd << " "
-    cmd << "'"
-    cmd << filepath
-    cmd << "'"
+    cmd << Shellwords.escape(filepath)  # escape the filepath
     cmd << " "
     cmd << height.to_s
     cmd << " "
@@ -617,7 +599,6 @@ class MRDialog
   ensure
     tmp.close!
   end
-
   #
   # form/mixedform dialog
   # A form dialog displays a form consisting of labels and fields, 
@@ -630,6 +611,10 @@ class MRDialog
   # look at samples/form.rb for an example
   #
   # return a hash. keys are the labels
+  # Update: 
+  #   insteaf of putting command inside single quote, use shell escape,
+  #   otherwise if value has single quote parsing fails. Oct-18-2025 
+  #
   # Author:: muquit@muquit.com 
   def form(text, items, height=0, width=0, formheight=0)
     res_hash = {}
@@ -643,28 +628,24 @@ class MRDialog
         mixed_form = true
     end
     items.each do |item|
-      itemlist << "'"
-      itemlist << item[0].to_s
-      itemlist << "'"
+      itemlist << Shellwords.escape(item[0].to_s)  # label
       itemlist << " "
-      itemlist << item[1].to_s
+      itemlist << item[1].to_s  # ly
       itemlist << " "
-      itemlist << item[2].to_s
+      itemlist << item[2].to_s  # lx
       itemlist << " "
-      itemlist << "'"
-      itemlist << item[3].to_s
-      itemlist << "'"
+      itemlist << Shellwords.escape(item[3].to_s)  # value
       itemlist << " "
-      itemlist << item[4].to_s
+      itemlist << item[4].to_s  # iy
       itemlist << " "
-      itemlist << item[5].to_s
+      itemlist << item[5].to_s  # ix
       itemlist << " "
-      itemlist << item[6].to_s
+      itemlist << item[6].to_s  # flen
       itemlist << " "
-      itemlist << item[7].to_s
+      itemlist << item[7].to_s  # ilen
       itemlist << " "
       if mixed_form
-          itemlist << item[8].to_s
+          itemlist << item[8].to_s  # field type
           itemlist << " "
       end
     end
@@ -685,9 +666,7 @@ class MRDialog
       end
     end
     cmd << " "
-    cmd << "'"
-    cmd << text
-    cmd << "'"
+    cmd << Shellwords.escape(text)  # also escape the form title
     cmd << " "
     cmd << height.to_s
     cmd << " "
@@ -714,8 +693,7 @@ class MRDialog
     return res_hash
   ensure
     tmp.close!
-  end
-
+  end  
   #
   # A mixedform dialog displays a form consisting of labels and fields,  
   # much  like  the --form  dialog.   It differs by adding a field-type 
@@ -754,13 +732,14 @@ class MRDialog
   #      zero, the current date is used as an initial value.
   #
   #  Returns a Date object with the selected date
-
+  # Update: 
+  #   insteaf of putting command inside single quote, use shell escape,
+  #   otherwise if value has single quote parsing fails. Oct-18-2025 
   def calendar(text="Select a Date", height=0, width=0, day=Date.today.mday(), month=Date.today.mon(), year=Date.today.year())
-
     tmp = Tempfile.new('tmp')
 
-    command = option_string() + "--calendar \"" + text.to_s + 
-      "\" " + height.to_i.to_s + " " + width.to_i.to_s + " " + 
+    command = option_string() + "--calendar " + Shellwords.escape(text.to_s) + 
+      " " + height.to_i.to_s + " " + width.to_i.to_s + " " + 
       day.to_i.to_s + " " + month.to_i.to_s + " " + year.to_i.to_s + 
       " 2> " + tmp.path
     success = system(command)
@@ -774,13 +753,15 @@ class MRDialog
   ensure    
     tmp.close!
   end
-
   # A  checklist  box  is similar to a menu box; there are multiple
   # entries presented in the form of a menu.  Instead  of  choosing
   # one entry among the entries, each entry can be turned on or off
   # by the user.  The initial on/off state of each entry is  speci-
   # fied by status.
   # return an array of selected items
+   # Update: 
+  #   insteaf of putting command inside single quote, use shell escape,
+  #   otherwise if value has single quote parsing fails. Oct-18-2025 
   def checklist(text, items, height=0, width=0, listheight=0)
     
     tmp = Tempfile.new('tmp')
@@ -793,17 +774,18 @@ class MRDialog
       else
         item[2] = "off"
       end
-      itemlist += "\"" + item[0].to_s + "\" \"" + item[1].to_s + 
-      "\" " + item[2] + " "
+      itemlist += Shellwords.escape(item[0].to_s) + " " +   # tag
+                  Shellwords.escape(item[1].to_s) + " " +   # description
+                  item[2] + " "                             # on/off status
 
       if @itemhelp
-        itemlist += "\"" + item[3].to_s + "\" "
+        itemlist += Shellwords.escape(item[3].to_s) + " "   # help text
       end
     end
 
     sep = "|"
-    command = option_string() + "--checklist \"" + text.to_s +
-                        "\" " + height.to_i.to_s + " " + width.to_i.to_s +
+    command = option_string() + "--checklist " + Shellwords.escape(text.to_s) +
+                        " " + height.to_i.to_s + " " + width.to_i.to_s +
       " " + listheight.to_i.to_s + " " + itemlist + "2> " +
       tmp.path 
       log_debug "Command:\n#{command}"
@@ -827,7 +809,6 @@ class MRDialog
   ensure    
     tmp.close!
   end
-
   #      The file-selection dialog displays a text-entry window in which
   #      you can type a filename (or directory), and above that two win-
   #      dows with directory names and filenames.
@@ -847,12 +828,14 @@ class MRDialog
   #
   #      Use a carriage return or the "OK" button to accept the  current
   #      value in the text-entry window and exit.
-
+  # Update: 
+  #   insteaf of putting command inside single quote, use shell escape,
+  #   otherwise if value has single quote parsing fails. Oct-18-2025 
   def fselect(path, height=0, width=0)
     tmp = Tempfile.new('tmp')
 
-    command = option_string() + "--fselect \"" + path.to_s +
-              "\" " + height.to_i.to_s + " " + width.to_i.to_s + " "
+    command = option_string() + "--fselect " + Shellwords.escape(path.to_s) +
+              " " + height.to_i.to_s + " " + width.to_i.to_s + " "
 
     command += "2> " + tmp.path
 
@@ -872,8 +855,6 @@ class MRDialog
   ensure
     tmp.close!
   end
-
-
   #
   # An info box is basically a message box.  However, in this case,
   # dialog  will  exit  immediately after displaying the message to
@@ -882,19 +863,22 @@ class MRDialog
   # script clears it later.  This is useful when you want to inform
   # the  user that some operations are carrying on that may require
   # some time to finish.
-  #
+  # Update: 
+  #   insteaf of putting command inside single quote, use shell escape,
+  #   otherwise if value has single quote parsing fails. Oct-18-2025 
   # Returns false if esc was pushed
-  def infobox(text, height=0, width=0)
-    command = option_string() + "--infobox \"" + text.to_s +
-                "\" " + height.to_i.to_s + " " + width.to_i.to_s + " "
+   def infobox(text, height=0, width=0)
+    command = option_string() + "--infobox " + Shellwords.escape(text.to_s) +
+                " " + height.to_i.to_s + " " + width.to_i.to_s + " "
     success = system(command)
     @exit_code = $?.exitstatus
     return success
-  end
+  end 
 
   #      A  radiolist box is similar to a menu box.  The only difference
   #      is that you can indicate which entry is currently selected,  by
   #      setting its status to true.
+   
   def radiolist(text, items, height=0, width=0, listheight=0)
 
     tmp = Tempfile.new('tmp')
@@ -907,16 +891,17 @@ class MRDialog
       else
         item[2] = "off"
       end
-      itemlist += "\"" + item[0].to_s + "\" \"" + item[1].to_s +
-                  "\" " + item[2] + " "
+      itemlist += Shellwords.escape(item[0].to_s) + " " +   # tag
+                  Shellwords.escape(item[1].to_s) + " " +   # description
+                  item[2] + " "                             # on/off status
 
       if @itemhelp
-        itemlist += "\"" + item[3].to_s + "\" "
+        itemlist += Shellwords.escape(item[3].to_s) + " "   # help text
       end
     end
 
-    command = option_string() + "--radiolist \"" + text.to_s +
-              "\" " + height.to_i.to_s + " " + width.to_i.to_s +
+    command = option_string() + "--radiolist " + Shellwords.escape(text.to_s) +
+              " " + height.to_i.to_s + " " + width.to_i.to_s +
               " " + listheight.to_i.to_s + " " + itemlist + "2> " +
               tmp.path
     log_debug("Command:\n#{command}")
@@ -933,35 +918,35 @@ class MRDialog
     tmp.close!
   end
 
-        #      As  its  name  suggests, a menu box is a dialog box that can be
-        #      used to present a list of choices in the form of a menu for the
-        #      user  to  choose.   Choices  are  displayed in the order given.
-        #      Each menu entry consists of a tag string and  an  item  string.
-        #      The tag gives the entry a name to distinguish it from the other
-        #      entries in the menu.  The item is a short  description  of  the
-        #      option  that  the  entry represents.  The user can move between
-        #      the menu entries by pressing the cursor keys, the first  letter
-        #      of  the  tag  as  a  hot-key, or the number keys 1-9. There are
-        #      menu-height entries displayed in the menu at one time, but  the
-        #      menu will be scrolled if there are more entries than that.
+  #      As  its  name  suggests, a menu box is a dialog box that can be
+  #      used to present a list of choices in the form of a menu for the
+  #      user  to  choose.   Choices  are  displayed in the order given.
+  #      Each menu entry consists of a tag string and  an  item  string.
+  #      The tag gives the entry a name to distinguish it from the other
+  #      entries in the menu.  The item is a short  description  of  the
+  #      option  that  the  entry represents.  The user can move between
+  #      the menu entries by pressing the cursor keys, the first  letter
+  #      of  the  tag  as  a  hot-key, or the number keys 1-9. There are
+  #      menu-height entries displayed in the menu at one time, but  the
+  #      menu will be scrolled if there are more entries than that.
   #
-        #      Returns a string containing the tag of the chosen menu entry.
-
+  #      Returns a string containing the tag of the chosen menu entry.
   def menu(text="Text Goes Here", items=nil, height=0, width=0, listheight=0)
     tmp = Tempfile.new('tmp')
 
     itemlist = String.new
 
     for item in items
-      itemlist += "\"" + item[0].to_s + "\" \"" + item[1].to_s +  "\" "
+      itemlist += Shellwords.escape(item[0].to_s) + " " +   # tag
+                  Shellwords.escape(item[1].to_s) + " "      # description
 
       if @itemhelp
-        itemlist += "\"" + item[2].to_s + "\" "
+        itemlist += Shellwords.escape(item[2].to_s) + " "   # help text
       end
     end
 
-    command = option_string() + "--menu \"" + text.to_s +
-              "\" " + height.to_i.to_s + " " + width.to_i.to_s +
+    command = option_string() + "--menu " + Shellwords.escape(text.to_s) +
+              " " + height.to_i.to_s + " " + width.to_i.to_s +
               " " + listheight.to_i.to_s + " " + itemlist + "2> " +
               tmp.path
 
@@ -978,6 +963,7 @@ class MRDialog
   ensure    
     tmp.close!
   end
+
 
   #      A message box is very similar to a yes/no box.  The  only  dif-
   #      ference  between  a message box and a yes/no box is that a mes-
@@ -985,10 +971,9 @@ class MRDialog
   #      box  to  display  any message you like.  After reading the mes-
   #      sage, the user can press the ENTER key so that dialog will exit
   #      and the calling shell script can continue its operation.
-
   def msgbox(text="Text Goes Here", height=0, width=0)
-    command = option_string() + "--msgbox \"" + text.to_s +
-                "\" " + height.to_i.to_s + " " + width.to_i.to_s + " "
+    command = option_string() + "--msgbox " + Shellwords.escape(text.to_s) +
+                " " + height.to_i.to_s + " " + width.to_i.to_s + " "
 
     log_debug "Command\n#{command}"
     success = system(command)
@@ -1004,14 +989,13 @@ class MRDialog
   #      confusing to the user to provide them with a  default  password
   #      they  cannot  see.   For  these reasons, using "init" is highly
   #      discouraged.
-
   def passwordbox(text="Please enter some text", height=0, width=0, init="")
     tmp = Tempfile.new('tmp')
-    command = option_string() + "--passwordbox \"" + text.to_s +
-              "\" " + height.to_i.to_s + " " + width.to_i.to_s + " "
+    command = option_string() + "--passwordbox " + Shellwords.escape(text.to_s) +
+              " " + height.to_i.to_s + " " + width.to_i.to_s + " "
 
     unless init.empty?
-      command += init.to_s + " "
+      command += Shellwords.escape(init.to_s) + " "
     end
 
     command += "2> " + tmp.path
@@ -1032,7 +1016,7 @@ class MRDialog
   ensure
     tmp.close!
   end
-
+  
   #     The textbox method handles three similar dialog functions, textbox,
   #     tailbox, and tailboxbg. They are activated by setting type to
   #     "text", "tail", and "bg" respectively
@@ -1060,7 +1044,6 @@ class MRDialog
   #  Display text from a file in a dialog box as a background  task,
   #  as  in a "tail -f &" command.  Scroll left/right using vi-style
   #  'h' and 'l', or arrow-keys.  A '0' resets the scrolling.
-
   def textbox(file, type="text", height=0, width=0)
     case type
       when "text"
@@ -1071,8 +1054,8 @@ class MRDialog
         opt = "--textboxbg"
     end
 
-    command = option_string() + opt +" \"" + file.to_s +
-                "\" " + height.to_i.to_s + " " + width.to_i.to_s + " "
+    command = option_string() + opt + " " + Shellwords.escape(file.to_s) +
+                " " + height.to_i.to_s + " " + width.to_i.to_s + " "
     
     success = system(command)
     @exit_code = $?.exitstatus
@@ -1088,15 +1071,13 @@ class MRDialog
   #      between windows.
   #
   #      On  exit, a Time object is returned.
-
-##-    def timebox(file, type="text", height=0, width=0, time=Time.now)
   def timebox(text, height=0, width=0, time=Time.now)
-              tmp = Tempfile.new('tmp')
+    tmp = Tempfile.new('tmp')
 
-    command = option_string() + "--timebox \"" + text.to_s +
-              "\" " + height.to_i.to_s + " " + width.to_i.to_s + " " +
-    time.hour.to_s + " " + time.min.to_s + " " + 
-    time.sec.to_s + " 2> " + tmp.path
+    command = option_string() + "--timebox " + Shellwords.escape(text.to_s) +
+              " " + height.to_i.to_s + " " + width.to_i.to_s + " " +
+              time.hour.to_s + " " + time.min.to_s + " " + 
+              time.sec.to_s + " 2> " + tmp.path
     log_debug("Command:\n#{command}")
     success = system(command)
     @exit_code = $?.exitstatus
@@ -1122,11 +1103,11 @@ class MRDialog
   def inputbox(text="Please enter some text", height=0, width=0, init="")
     tmp = Tempfile.new('tmp')
 
-    command = option_string() + "--inputbox \"" + text.to_s +
-              "\" " + height.to_i.to_s + " " + width.to_i.to_s + " "
+    command = option_string() + "--inputbox " + Shellwords.escape(text.to_s) +
+              " " + height.to_i.to_s + " " + width.to_i.to_s + " "
 
     unless init.empty?
-      command += init.to_s + " "
+      command += Shellwords.escape(init.to_s) + " "
     end
 
     command += "2> " + tmp.path
@@ -1149,6 +1130,7 @@ class MRDialog
     tmp.close!
   end
 
+
   #      A yes/no dialog box of size height rows by width  columns  will
   #      be displayed.  The string specified by text is displayed inside
   #      the dialog box.  If this string is too long to fit in one line,
@@ -1159,34 +1141,25 @@ class MRDialog
   #      that  require  the user to answer either yes or no.  The dialog
   #      box has a Yes button and a No button, in  which  the  user  can
   #      switch between by pressing the TAB key.
-
   # changing --inputbox to --yesno
   #  muquit@muquit.com Apr-01-2014 
-  def yesno(text="Please enter some text", height=0, width=0)
-#    command = option_string() + "--inputbox \"" + text.to_s +
-#                "\" " + height.to_i.to_s + " " + width.to_i.to_s
-
+   def yesno(text="Please enter some text", height=0, width=0)
     command = ""
-    command << option_string();
+    command << option_string()
     command << " "
-    command << "'"
     command << "--yesno"
-    command << "'"
     command << " "
-    command << "'"
-    command << text
-    command << "'"
+    command << Shellwords.escape(text)
     command << " "
     command << height.to_s
     command << " "
     command << width.to_s
 
-
     log_debug("Command:\n#{command}")
     success = system(command)
     @exit_code = $?.exitstatus
     return success
-  end
+  end 
 
   private  
 
@@ -1226,7 +1199,7 @@ class MRDialog
         end
 
         if @backtitle
-          ostring += "--backtitle \"" + @backtitle + "\" "
+          ostring += "--backtitle " + Shellwords.escape(@backtitle) + " "
         end 
 
         if @itemhelp
@@ -1264,9 +1237,7 @@ class MRDialog
         end
 
         if @title
-          #      ostring += "--title " + "\"" + @title.to_s "\"" + " "
-          # muquit@muquit.com  Apr-01-2014 
-          ostring += "--title \"" + @title.to_s + "\" "
+          ostring += "--title " + Shellwords.escape(@title.to_s) + " "
         end
 
         # muquit@muquit.com mod starts--
