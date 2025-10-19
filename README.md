@@ -42,9 +42,9 @@
 [dialog](http://invisible-island.net/dialog/dialog.html) program.
 [dialog](http://invisible-island.net/dialog/dialog.html) is
 a command line tool that can present questions, messages, forms using
-dialog boxes from a shell script. If you compiled linux kernel and typed 'make
-menuconfig', configured Linux from command line with various configuration
-managers, you have used 'dialog' like programs.
+dialog boxes from a shell script. If you compiled linux kernel and typed 
+`make menuconfig`, configured Linux from command line with various 
+configuration managers, you have used 'dialog' like programs.
 
 However, it is painful to program dialog from shell scripts due to lack of
 data structure. You constantly have to watch if the correct number of
