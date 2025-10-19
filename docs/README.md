@@ -7,7 +7,9 @@
 a command line tool that can present questions, messages, forms using
 dialog boxes from a shell script. If you compiled linux kernel and typed 
 `make menuconfig`, configured Linux from command line with various 
-configuration managers, you have used 'dialog' like programs.
+configuration managers, you have used 'dialog' like programs. Please
+have a lookt at the [screenshots](screenshots/) on the dialogs look 
+like.
 
 However, it is painful to program dialog from shell scripts due to lack of
 data structure. You constantly have to watch if the correct number of
