@@ -6,7 +6,7 @@
   - [1.0.3](#103)
   - [1.0.2](#102)
   - [1.0.1](#101)
-- [bug fixes:](#bug-fixes)
+  - [bug fixes](#bug-fixes)
   - [0.5.0](#050)
 
 ## 1.0.7
@@ -129,7 +129,7 @@ Note: The examples use Struct class, making the examples clean and
 easy to understand. 
 
 
-# bug fixes:
+## bug fixes
 
 * raise exception if 'dialog' program is not found.
 * title in the option string was not quoted

@@ -118,7 +118,7 @@ Note: The examples use Struct class, making the examples clean and
 easy to understand. 
 
 
-# bug fixes:
+## bug fixes
 
 * raise exception if 'dialog' program is not found.
 * title in the option string was not quoted
