@@ -1,0 +1,1 @@
+3f604f8e4dfae20daaf0fa29c33b1ff8b89738e79a77ddaff3690eeff9e1be3d  mrdialog-1.0.7.gem
