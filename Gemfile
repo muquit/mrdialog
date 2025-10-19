@@ -1,4 +1,4 @@
-source "http://rubygems.org"
+source "https://rubygems.org"
 # Add dependencies required to use your gem here.
 # Example:
 #   gem "activesupport", ">= 2.3.5"
@@ -9,7 +9,7 @@ group :development do
   gem "shoulda", ">= 0"
   gem "rdoc", "~> 6.1.2.1"
   gem "bundler", "~> 2.1.0"
-  gem "juwelier", "~> 2.1.0"
+  gem "juwelier", ">= 2.4.9"
   gem "simplecov", ">= 0"
   gem "test-unit"
 end
