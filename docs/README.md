@@ -17,7 +17,7 @@ a lot of fun to program dialog from an object oriented scripting language like
 the sample ruby scripts of mrdialog in the [samples](samples/) directory, I think you will agree. Look at [samples/extra_button/](samples/extra_button/) directory for samples on using an extra button on various input dialogs.
 
 MRDialog is based on the rdialog ruby gem http://rdialog.rubyforge.org/ by
-Aleks Clark.
+Aleks Clark (Does not seem to exist anymore).
 
 I did the following:
 
@@ -70,15 +70,18 @@ dialog HOME: http://invisible-island.net/dialog/dialog.html.
 ## Run the sample apps
 
 Find out where the mrdialog gem is installed. Example:
+```bash
+gem which mrdialog
+/Users/muquit/.rvm/gems/ruby-3.2.2/gems/mrdialog-1.0.7/lib/mrdialog.rb
+```
 
-    $ gem which mrdialog
-    /Users/muquit/.rvm/gems/ruby-3.0.0/gems/mrdialog-1.0.4/lib/mrdialog.rb
 
 `cd` to the `samples` directory and run the apps.
 Example:
-
-    $ cd /Users/muquit/.rvm/gems/ruby-3.0.0/gems/mrdialog-1.0.4/samples
-    $ ./msgbox.rb
+```bash
+cd /Users/muquit/.rvm/gems/ruby-3.2.2/gems/mrdialog-1.0.7/samples
+./msgbox.rb
+```
 
 Look at samples/extra_button/ on how to use an extra button on various input
 dialogs.
