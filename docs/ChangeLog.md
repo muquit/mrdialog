@@ -1,14 +1,3 @@
-## Table Of Contents
-  - [1.0.7](#107)
-  - [1.0.6](#106)
-  - [1.0.5](#105)
-  - [1.0.4](#104)
-  - [1.0.3](#103)
-  - [1.0.2](#102)
-  - [1.0.1](#101)
-- [bug fixes:](#bug-fixes)
-  - [0.5.0](#050)
-
 ## 1.0.7
 * If any text had single quote in it e.g. "don't", "It's", the dialog 
 command was failing with syntax error. In previsous version, the dialog 

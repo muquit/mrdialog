@@ -14,6 +14,7 @@ build:
 # https://github.com/muquit/markdown-toc-go
 doc:
 	markdown-toc-go -i docs/README.md -o README.md -f
+	markdown-toc-go -i docs/ChangeLog.md -o ChangeLog.md -f -no-credit
 
 release: build
 	gem push pkg/mrdialog-$(VERSION).gem
